@@ -1,4 +1,4 @@
-//using CentimeterX.API.Data;
+using CentimeterX.API.Data;
 //using CentimeterX.API.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Oracle + EF Core
-//var connectionString = builder.Configuration.GetConnectionString("OracleConnection");
-//builder.Services.AddDbContext<AppDbContext>(options =>
-    //options.UseOracle(connectionString));
+var connectionString = builder.Configuration.GetConnectionString("OracleConnection");
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseOracle(connectionString));
 
 // Services
 //builder.Services.AddScoped<RoverService>();

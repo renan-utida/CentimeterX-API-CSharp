@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CentimeterX.API.Models
 {
-    [Table("TB_ESTACAO_BASE")]
+    [Table("CX_ESTACAO_BASE")]
     public class EstacaoBase
     {
         [Key]

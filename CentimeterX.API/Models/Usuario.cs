@@ -4,7 +4,7 @@ using CentimeterX.API.Models.Enums;
 
 namespace CentimeterX.API.Models
 {
-    [Table("TB_USUARIO")]
+    [Table("CX_USUARIO")]
     public class Usuario
     {
         [Key]

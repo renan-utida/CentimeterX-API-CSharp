@@ -4,7 +4,7 @@ using CentimeterX.API.Models.Enums;
 
 namespace CentimeterX.API.Models
 {
-    [Table("TB_ROVER")]
+    [Table("CX_ROVER")]
     public abstract class Rover
     {
         [Key]
