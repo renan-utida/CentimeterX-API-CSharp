@@ -32,10 +32,6 @@ namespace CentimeterX.API.Models
         [Column("FL_ONLINE")]
         public bool Online { get; set; } = true;
 
-        [StringLength(200)]
-        [Column("DS_CONSTELACOES")]
-        public string Constelacoes { get; set; } = string.Empty;
-
         [Column("DT_ULTIMA_ATUALIZACAO")]
         public DateTime UltimaAtualizacao { get; set; } = DateTime.UtcNow;
     }

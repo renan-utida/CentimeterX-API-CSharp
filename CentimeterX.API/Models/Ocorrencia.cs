@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CentimeterX.API.Models.Enums;
 
 namespace CentimeterX.API.Models
 {

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CentimeterX.API.Models.Enums;
 
 namespace CentimeterX.API.Models
 {
@@ -35,8 +36,8 @@ namespace CentimeterX.API.Models
         public double PrecisaoVerticalCm { get; set; }
 
         [StringLength(50)]
-        [Column("DS_CONSTELACAO")]
-        public string Constelacao { get; set; } = string.Empty;
+        [Column("DS_SISTEMA_SATELITE")]
+        public string SistemaSatelite { get; set; } = string.Empty;
 
         [Column("DT_INICIOU_EM")]
         public DateTime IniciouEm { get; set; } = DateTime.UtcNow;

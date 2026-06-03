@@ -1,4 +1,4 @@
-﻿namespace CentimeterX.API.Models
+﻿namespace CentimeterX.API.Models.Enums
 {
     public enum StatusFix
     {

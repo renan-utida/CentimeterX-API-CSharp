@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CentimeterX.API.Models.Enums;
 
 namespace CentimeterX.API.Models
 {
@@ -20,11 +21,6 @@ namespace CentimeterX.API.Models
         [StringLength(150)]
         [Column("DS_EMAIL")]
         public string Email { get; set; }
-
-        [Required]
-        [StringLength(255)]
-        [Column("DS_SENHA_HASH")]
-        public string SenhaHash { get; set; }
 
         [Column("TP_PERFIL")]
         public PerfilUsuario Perfil { get; set; } = PerfilUsuario.Operador;
