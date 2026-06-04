@@ -1,5 +1,5 @@
 using CentimeterX.API.Data;
-//using CentimeterX.API.Services;
+using CentimeterX.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,12 +16,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseOracle(connectionString));
 
 // Services
-//builder.Services.AddScoped<RoverService>();
-//builder.Services.AddScoped<SessaoCorrecaoService>();
-//builder.Services.AddScoped<EstacaoBaseService>();
-//builder.Services.AddScoped<OcorrenciaService>();
-//builder.Services.AddScoped<UsuarioService>();
-//builder.Services.AddScoped<ICorrecaoService, SessaoCorrecaoService>();
+builder.Services.AddScoped<RoverService>();
+builder.Services.AddScoped<SessaoCorrecaoService>();
+builder.Services.AddScoped<EstacaoBaseService>();
+builder.Services.AddScoped<OcorrenciaService>();
+builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<ICorrecaoService, SessaoCorrecaoService>();
 
 var app = builder.Build();
 
