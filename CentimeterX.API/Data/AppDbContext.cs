@@ -65,6 +65,11 @@ namespace CentimeterX.API.Data
             modelBuilder.Entity<MaquinaAgricola>()
                 .Property(m => m.LarguraImplemento)
                 .HasPrecision(18, 2);
+
+            // bool → NUMBER(1) para compatibilidade Oracle
+            modelBuilder.Entity<EstacaoBase>()
+                .Property(e => e.Online)
+                .HasColumnType("NUMBER(1)");
         }
     }
 }
