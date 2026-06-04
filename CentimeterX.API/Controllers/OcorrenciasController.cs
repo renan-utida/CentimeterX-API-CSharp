@@ -132,6 +132,9 @@ namespace CentimeterX.API.Controllers
                 // Valida coordenadas
                 _ocorrenciaService.ValidarCoordenadas(ocorrencia.Latitude, ocorrencia.Longitude);
 
+                // Valida se o rover pertence ao usuário dono do equipamento
+                await _ocorrenciaService.ValidarPertencimentoRover(ocorrencia.IdRover, rover.IdUsuario);
+
                 ocorrencia.CriadaEm = DateTime.UtcNow;
 
                 _context.Ocorrencias.Add(ocorrencia);

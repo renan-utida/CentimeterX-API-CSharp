@@ -57,6 +57,9 @@ namespace CentimeterX.API.Controllers
                 if (rover == null)
                     return NotFound(new { mensagem = "Rover não encontrado." });
 
+                // Atualiza status com base na última sessão antes de retornar
+                await _roverService.AtualizarStatusPorUltimaSessao(id);
+
                 return rover;
             }
             catch (Exception ex)
