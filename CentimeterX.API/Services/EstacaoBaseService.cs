@@ -41,14 +41,25 @@ namespace CentimeterX.API.Services
             {
                 var estacoes = await _context.EstacoesBase.ToListAsync();
 
-                // Ordena por distância euclidiana simples em relação às coordenadas informadas
-                var ordenadas = estacoes
-                    .OrderBy(e => Math.Sqrt(
-                        Math.Pow(e.Latitude - latitude, 2) +
-                        Math.Pow(e.Longitude - longitude, 2)))
+                var resultado = new List<EstacaoBase>();
+                var distancias = new Dictionary<int, double>();
+
+                // Calcula distância euclidiana de cada estação em relação às coordenadas informadas
+                foreach (var estacao in estacoes)
+                {
+                    var distancia = Math.Sqrt(
+                        Math.Pow(estacao.Latitude - latitude, 2) +
+                        Math.Pow(estacao.Longitude - longitude, 2));
+
+                    distancias[estacao.IdEstacao] = distancia;
+                }
+
+                // Ordena pelo dicionário de distâncias e monta a lista resultado
+                resultado = estacoes
+                    .OrderBy(e => distancias[e.IdEstacao])
                     .ToList();
 
-                return ordenadas;
+                return resultado;
             }
             catch (Exception ex)
             {

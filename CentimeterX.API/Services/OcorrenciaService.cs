@@ -16,11 +16,13 @@ namespace CentimeterX.API.Services
 
         public void ValidarCoordenadas(double latitude, double longitude)
         {
-            if (latitude < -90 || latitude > 90)
-                throw new InvalidOperationException($"Latitude inválida: {latitude}. Deve estar entre -90 e 90.");
+            if (latitude < GnssConstants.LATITUDE_MIN || latitude > GnssConstants.LATITUDE_MAX)
+                throw new InvalidOperationException(
+                    $"Latitude inválida: {latitude}. Deve estar entre {GnssConstants.LATITUDE_MIN} e {GnssConstants.LATITUDE_MAX}.");
 
-            if (longitude < -180 || longitude > 180)
-                throw new InvalidOperationException($"Longitude inválida: {longitude}. Deve estar entre -180 e 180.");
+            if (longitude < GnssConstants.LONGITUDE_MIN || longitude > GnssConstants.LONGITUDE_MAX)
+                throw new InvalidOperationException(
+                    $"Longitude inválida: {longitude}. Deve estar entre {GnssConstants.LONGITUDE_MIN} e {GnssConstants.LONGITUDE_MAX}.");
         }
 
         public async Task ValidarPertencimentoRover(int roverId, int usuarioId)

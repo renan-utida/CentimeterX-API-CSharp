@@ -74,7 +74,8 @@ namespace CentimeterX.API.Services
 
                 // Se a última sessão foi encerrada há mais de 24 horas, marca como Offline
                 if (ultimaSessao.EncerradoEm != null &&
-                    DateTime.UtcNow - ultimaSessao.EncerradoEm.Value > TimeSpan.FromHours(24))
+                    DateTime.UtcNow - ultimaSessao.EncerradoEm.Value >
+                    TimeSpan.FromHours(GnssConstants.STATUS_INATIVIDADE_HORAS))
                 {
                     rover.Status = StatusRover.Offline;
                     await _context.SaveChangesAsync();

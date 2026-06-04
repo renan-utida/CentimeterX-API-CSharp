@@ -16,12 +16,15 @@ namespace CentimeterX.API.Services
 
         public StatusFix ClassificarFix(double precisaoHorizontalCm)
         {
-            if (precisaoHorizontalCm <= 5)
-                return StatusFix.FIX;
-            else if (precisaoHorizontalCm <= 50)
-                return StatusFix.FLOAT;
-            else
-                return StatusFix.SINGLE;
+            switch (precisaoHorizontalCm)
+            {
+                case <= GnssConstants.FIX_THRESHOLD_CM:
+                    return StatusFix.FIX;
+                case <= GnssConstants.FLOAT_THRESHOLD_CM:
+                    return StatusFix.FLOAT;
+                default:
+                    return StatusFix.SINGLE;
+            }
         }
 
         public async Task<double> ObterPrecisao(int sessaoId)
