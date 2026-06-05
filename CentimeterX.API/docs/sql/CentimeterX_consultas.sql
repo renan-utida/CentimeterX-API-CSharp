@@ -3,6 +3,7 @@ SET ECHO ON
 -- ============================================================
 -- Centimeter-X API - Scripts de Consulta Oracle
 -- Disciplina: C# Software Development - FIAP 3ESPW 2026
+-- Copie todo o código e cole em uma planilha do Oracle SQL Developer
 -- Integrantes
 -- Rafael Duarte de Freitas - 558644
 -- Rafael Gaspar Bragança Martins - 557228
