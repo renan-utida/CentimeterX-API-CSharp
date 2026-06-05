@@ -928,7 +928,17 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 
 **Herança com sentido conceitual:** `Rover` é a classe abstrata base para todos os equipamentos de campo. Não existe instância de `Rover` diretamente - todo rover é necessariamente uma `MaquinaAgricola`, um `Drone` ou um `VeiculoAutonomo`. Cada subclasse adiciona atributos específicos do seu tipo real (`ModeloTrator`, `AutonomiaVoo`, `NivelAutonomia`).
 
-**Classes públicas:** todas as entidades, services, controllers e o `AppDbContext` são `public`. **Classes privadas:** métodos auxiliares como `EstacaoExists` nos controllers, e todos os campos `private readonly` nos services e controllers. **Classe estática:** `GnssConstants` centraliza as constantes do domínio GNSS (`FIX_THRESHOLD_CM`, `FLOAT_THRESHOLD_CM`, limites de coordenadas, horas de inatividade).
+**Classes públicas:** todas as entidades, services, controllers e o `AppDbContext` são `public`. 
+
+**Classes privadas:** campos `private readonly` em todos os services e controllers (`private readonly AppDbContext _context`, `private readonly ILogger<T> _logger`). Além disso, cada service possui métodos privados que encapsulam lógica interna:
+
+- `RoverService` - `EstaInativo(DateTime?)`: verifica se o rover ultrapassou 24h sem sessão ativa
+- `SessaoCorrecaoService` - `SessaoEstaAtiva(SessaoCorrecao)`: verifica se a sessão ainda não foi encerrada
+- `EstacaoBaseService` - `CalcularDistancia(EstacaoBase, double, double)`: calcula a distância euclidiana usada na ordenação por proximidade
+- `OcorrenciaService` - `LatitudeValida(double)` e `LongitudeValida(double)`: validam os limites geográficos antes de persistir coordenadas
+- `UsuarioService` - `NormalizarEmail(string)`: aplica trim e lowercase antes de consultar e-mail duplicado no banco
+
+**Classe estática:** `GnssConstants` centraliza as constantes do domínio GNSS (`FIX_THRESHOLD_CM`, `FLOAT_THRESHOLD_CM`, limites de coordenadas, horas de inatividade).
 
 **Enums com uso real:**
 - `StatusRover` (Ativo, Inativo, Offline) - controla disponibilidade dos rovers
@@ -994,21 +1004,27 @@ CentimeterX.API/docs/postman/Centimeter-X_API.postman_collection.json
 
 Para importar: abra o Postman → **File → Import** → selecione o arquivo.
 
-> **Atenção:** a collection está configurada para a porta `7126`. Se a sua API rodar em porta diferente, atualize a variável de ambiente ou substitua a porta diretamente nas requisições.
+> **Atenção:** a collection está configurada para a porta `7126`. Se a sua API rodar em porta diferente, atualize a variável de ambiente ou substitua a porta diretamente nas requisições antes de executar.
 
 ---
 
 ## 11. Evidências de execução
 
-Segue a ordem dos principais testes realizados no Swagger, cobrindo os fluxos
-críticos de cada controller e as principais validações de negócio da plataforma.
+> Os principais cenários de teste estão documentados aqui. As evidências completas de todos os **59 cenários** testados - incluindo todas as validações de negócio, casos de erro e deletes - estão disponíveis em [`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md).
+
+**Ordem recomendada para cadastro:** `EstacoesBase` → `Usuarios` → `Rovers` → `SessoesCorrecao` → `Ocorrencias`
+
+**Ordem recomendada para deleção:** `Ocorrencias` → `SessoesCorrecao` → `Rovers` → `Usuarios` → `EstacoesBase`
+
+---
 
 ### Endpoints disponíveis no Swagger
 
-> Prints da tela inicial do Swagger com todos os controllers e endpoints expostos
+> Tela inicial do Swagger com todos os controllers e endpoints expostos
 
-![Print Swagger endpoints](CentimeterX.API/docs/prints/swagger-endpoints-1.png)
-![Print Swagger endpoints](CentimeterX.API/docs/prints/swagger-endpoints-2.png)
+![swagger-endpoints-1](CentimeterX.API/docs/prints/swagger-endpoints-1.png)
+
+![swagger-endpoints-2](CentimeterX.API/docs/prints/swagger-endpoints-2.png)
 
 ---
 
@@ -1018,31 +1034,22 @@ críticos de cada controller e as principais validações de negócio da platafo
 
 **01 - Cadastrar Estacao Base SP (POST)**
 
-![01](docs/prints/01.png)
+![01](CentimeterX.API/docs/prints/01-Cadastrar_Estacao_Base_SP.png)
+> 01-Cadastrar_Estacao_Base_SP.png
 
 ---
 
 **02 - Cadastrar Estacao Base RJ (POST)**
 
-![02](docs/prints/02.png)
+![02](CentimeterX.API/docs/prints/02-Cadastrar_Estacao_Base_RJ.png)
+> 02-Cadastrar_Estacao_Base_RJ.png
 
 ---
 
 **03 - Cadastrar Estacao Base - Latitude Invalida - 400 (POST)**
 
-![03](docs/prints/03.png)
-
----
-
-**04 - Listar Estacoes por Proximidade (GET)**
-
-![07](docs/prints/07.png)
-
----
-
-**05 - Atualizar Estacao Base (PUT)**
-
-![08](docs/prints/08.png)
+![03](CentimeterX.API/docs/prints/03-Cadastrar_Estacao_Base_LATITUDE_INVALIDA.png)
+> 03-Cadastrar_Estacao_Base_LATITUDE_INVALIDA.png
 
 ---
 
@@ -1050,21 +1057,24 @@ críticos de cada controller e as principais validações de negócio da platafo
 
 ---
 
-**06 - Cadastrar Usuario Operador (POST)**
+**04 - Cadastrar Usuario Operador (POST)**
 
-![09](docs/prints/09.png)
-
----
-
-**07 - Cadastrar Usuario - Email Duplicado - 400 (POST)**
-
-![11](docs/prints/11.png)
+![04](CentimeterX.API/docs/prints/09-Cadastrar_Usuario_Operador.png)
+> 09-Cadastrar_Usuario_Operador.png
 
 ---
 
-**08 - Listar Usuarios por Perfil (GET)**
+**05 - Cadastrar Usuario - Email Duplicado - 400 (POST)**
 
-![15](docs/prints/15.png)
+![05](CentimeterX.API/docs/prints/11-Cadastrar_Usuario_EMAIL_DUPLICADO.png)
+> 11-Cadastrar_Usuario_EMAIL_DUPLICADO.png
+
+---
+
+**06 - Listar Usuarios por Perfil (GET)**
+
+![06](CentimeterX.API/docs/prints/15-Buscar_Usuario_Perfil.png)
+> 15-Buscar_Usuario_Perfil.png
 
 ---
 
@@ -1072,39 +1082,45 @@ críticos de cada controller e as principais validações de negócio da platafo
 
 ---
 
-**09 - Cadastrar Maquina Agricola (POST)**
+**07 - Cadastrar Maquina Agricola (POST)**
 
-![17](docs/prints/17.png)
-
----
-
-**10 - Cadastrar Drone (POST)**
-
-![18](docs/prints/18.png)
+![07](CentimeterX.API/docs/prints/17-Cadastrar_Rover_Maquina_Agricola.png)
+> 17-Cadastrar_Rover_Maquina_Agricola.png
 
 ---
 
-**11 - Cadastrar Veiculo Autonomo (POST)**
+**08 - Cadastrar Drone (POST)**
 
-![19](docs/prints/19.png)
-
----
-
-**12 - Cadastrar Rover - Nome Duplicado - 400 (POST)**
-
-![20](docs/prints/20.png)
+![08](CentimeterX.API/docs/prints/18-Cadastrar_Rover_Drone.png)
+> 18-Cadastrar_Rover_Drone.png
 
 ---
 
-**13 - Cadastrar Rover - Estacao Offline - 400 (POST)**
+**09 - Cadastrar Veiculo Autonomo (POST)**
 
-![22](docs/prints/22.png)
+![09](CentimeterX.API/docs/prints/19-Cadastrar_Rover_Veiculo_Autonomo.png)
+> 19-Cadastrar_Rover_Veiculo_Autonomo.png
 
 ---
 
-**14 - Listar Todos os Rovers (GET)**
+**10 - Cadastrar Rover - Nome Duplicado - 400 (POST)**
 
-![24](docs/prints/24.png)
+![10](CentimeterX.API/docs/prints/20-Cadastrar_Rover_NOME_DUPLICADO.png)
+> 20-Cadastrar_Rover_NOME_DUPLICADO.png
+
+---
+
+**11 - Cadastrar Rover - Estacao Offline - 400 (POST)**
+
+![11](CentimeterX.API/docs/prints/22-Cadastrar_Rover_ESTACAO_OFFLINE.png)
+> 22-Cadastrar_Rover_ESTACAO_OFFLINE.png
+
+---
+
+**12 - Listar Todos os Rovers (GET)**
+
+![12](CentimeterX.API/docs/prints/24-Buscar_Todos_Rovers.png)
+> 24-Buscar_Todos_Rovers.png
 
 ---
 
@@ -1112,45 +1128,52 @@ críticos de cada controller e as principais validações de negócio da platafo
 
 ---
 
-**15 - Iniciar Sessao Maquina Agricola (POST)**
+**13 - Iniciar Sessao Maquina Agricola (POST)**
 
-![30](docs/prints/30.png)
-
----
-
-**16 - Iniciar Sessao - Sessao Dupla Bloqueada - 400 (POST)**
-
-![31](docs/prints/31.png)
+![13](CentimeterX.API/docs/prints/30-Iniciar_Sessao_Correcao_Maquina.png)
+> 30-Iniciar_Sessao_Correcao_Maquina.png
 
 ---
 
-**17 - Buscar Sessao - StatusFix SINGLE (GET)**
+**14 - Iniciar Sessao - Sessao Dupla Bloqueada - 400 (POST)**
 
-![32](docs/prints/32.png)
-
----
-
-**18 - Atualizar Precisao para FIX (PUT)**
-
-![33](docs/prints/33.png)
+![14](CentimeterX.API/docs/prints/31-Iniciar_Sessao_Correcao_DUPLA_BLOQUEADA.png)
+> 31-Iniciar_Sessao_Correcao_DUPLA_BLOQUEADA.png
 
 ---
 
-**19 - Encerrar Sessao - StatusFix FIX (PUT)**
+**15 - Buscar Sessao - StatusFix SINGLE (GET)**
 
-![34](docs/prints/34.png)
-
----
-
-**20 - Encerrar Sessao - StatusFix FLOAT (PUT)**
-
-![36](docs/prints/36.png)
+![15](CentimeterX.API/docs/prints/32-Buscar_Sessao_Correcao_ID.png)
+> 32-Buscar_Sessao_Correcao_ID.png
 
 ---
 
-**21 - Iniciar Sessao - Rover Inexistente - 400 (POST)**
+**16 - Atualizar Precisao para FIX (PUT)**
 
-![41](docs/prints/41.png)
+![16](CentimeterX.API/docs/prints/33-Atualizar_Sessao_Correcao_FIX.png)
+> 33-Atualizar_Sessao_Correcao_FIX.png
+
+---
+
+**17 - Encerrar Sessao - StatusFix FIX (PUT)**
+
+![17](CentimeterX.API/docs/prints/34-Encerrar_Sessao_Correcao_FIX.png)
+> 34-Encerrar_Sessao_Correcao_FIX.png
+
+---
+
+**18 - Encerrar Sessao - StatusFix FLOAT (PUT)**
+
+![18](CentimeterX.API/docs/prints/37-Encerrar_Sessao_Correcao_FLOAT.png)
+> 37-Encerrar_Sessao_Correcao_FLOAT.png
+
+---
+
+**19 - Iniciar Sessao - Rover Inexistente - 400 (POST)**
+
+![19](CentimeterX.API/docs/prints/41-Iniciar_Sessao_Correcao_ROVER_INEXISTENTE.png)
+> 41-Iniciar_Sessao_Correcao_ROVER_INEXISTENTE.png
 
 ---
 
@@ -1158,21 +1181,24 @@ críticos de cada controller e as principais validações de negócio da platafo
 
 ---
 
-**22 - Registrar Ocorrencia Valida (POST)**
+**20 - Registrar Ocorrencia Valida (POST)**
 
-![42](docs/prints/42.png)
-
----
-
-**23 - Registrar Ocorrencia - Latitude Invalida - 400 (POST)**
-
-![43](docs/prints/43.png)
+![20](CentimeterX.API/docs/prints/42-Cadastrar_Ocorrencia_Valida.png)
+> 42-Cadastrar_Ocorrencia_Valida.png
 
 ---
 
-**24 - Filtrar Ocorrencias por Tipo e Periodo (GET)**
+**21 - Registrar Ocorrencia - Latitude Invalida - 400 (POST)**
 
-![48](docs/prints/48.png)
+![21](CentimeterX.API/docs/prints/43-Cadastrar_Ocorrencia_LATITUDE_INVALIDA.png)
+> 43-Cadastrar_Ocorrencia_LATITUDE_INVALIDA.png
+
+---
+
+**22 - Filtrar Ocorrencias por Tipo e Periodo (GET)**
+
+![22](CentimeterX.API/docs/prints/48-Buscar_Ocorrencia_FILTRO.png)
+> 48-Buscar_Ocorrencia_FILTRO.png
 
 ---
 
@@ -1180,35 +1206,32 @@ críticos de cada controller e as principais validações de negócio da platafo
 
 Para deletar, é recomendado remover nessa ordem:
 
-**Ocorrencia → Sessoes → Rovers → Usuarios → EstacoesBase**
+**Ocorrencia → SessoesCorrecao → Rovers → Usuarios → EstacoesBase**
 
 > Delete sempre nessa ordem para evitar erros de chave estrangeira!
 
 ---
 
-**25 - Deletar Ocorrencia (DELETE)**
+**23 - Deletar Ocorrencia (DELETE)**
 
-![49](docs/prints/49.png)
+![23](CentimeterX.API/docs/prints/49-Deletar_Ocorrencia.png)
+> 49-Deletar_Ocorrencia.png
 
 ---
 
 ### Banco de Dados (Oracle SQL Developer)
 
-> Prints das tabelas criadas e dos dados inseridos após os testes 01 a 24
-> (antes dos deletes). Scripts disponíveis em
-> [`CentimeterX.API/docs/sql/CentimeterX_consultas.sql`](CentimeterX.API/docs/sql/CentimeterX_consultas.sql)
+> Print das tabelas criadas no Oracle após a execução das migrations.
 
-![CentimeterX.API/sql-tabelas](CentimeterX.API/docs/prints/sql-tabelas.png)
-
-![CentimeterX.API/sql-dados](CentimeterX.API/docs/prints/sql-dados.png)
+![sql-tabelas](CentimeterX.API/docs/prints/sql-tabelas.png)
 
 ---
 
-As evidências completas de todos os 59 cenários testados estão disponíveis em
-[`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md).
+As evidências completas de todos os 59 cenários testados, incluindo dados inseridos nas tabelas e JOINs completos, estão disponíveis em [`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md).
 
-- Vídeo demonstrativo - disponível na entrega via Teams, cobrindo os 6 blocos
-  de testes organizados por controller
+- [`CentimeterX.API/docs/sql/Centimeter-X_consultas.sql`](CentimeterX.API/docs/sql/Centimeter-X_consultas.sql) - scripts de consulta Oracle com SELECTs simples e JOINs completos das 5 tabelas
+
+- Vídeo demonstrativo - disponível na entrega via Teams e no YouTube, cobrindo os 6 blocos de testes organizados por controller
 
 ---
 
