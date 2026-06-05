@@ -14,6 +14,14 @@ namespace CentimeterX.API.Services
             _context = context;
         }
 
+        // Verifica se o rover está inativo com base na última sessão encerrada
+        private bool EstaInativo(DateTime? encerradoEm)
+        {
+            if (encerradoEm == null) return false;
+            return DateTime.UtcNow - encerradoEm.Value >
+                TimeSpan.FromHours(GnssConstants.STATUS_INATIVIDADE_HORAS);
+        }
+
         public async Task ValidarEstacaoDisponivel(int estacaoBaseId)
         {
             try
@@ -73,9 +81,7 @@ namespace CentimeterX.API.Services
                 if (ultimaSessao == null) return;
 
                 // Se a última sessão foi encerrada há mais de 24 horas, marca como Offline
-                if (ultimaSessao.EncerradoEm != null &&
-                    DateTime.UtcNow - ultimaSessao.EncerradoEm.Value >
-                    TimeSpan.FromHours(GnssConstants.STATUS_INATIVIDADE_HORAS))
+                if (EstaInativo(ultimaSessao.EncerradoEm))
                 {
                     rover.Status = StatusRover.Offline;
                     await _context.SaveChangesAsync();

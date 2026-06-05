@@ -14,13 +14,25 @@ namespace CentimeterX.API.Services
             _context = context;
         }
 
+        // Verifica se a latitude está dentro dos limites geográficos válidos
+        private bool LatitudeValida(double latitude)
+        {
+            return latitude >= GnssConstants.LATITUDE_MIN && latitude <= GnssConstants.LATITUDE_MAX;
+        }
+
+        // Verifica se a longitude está dentro dos limites geográficos válidos
+        private bool LongitudeValida(double longitude)
+        {
+            return longitude >= GnssConstants.LONGITUDE_MIN && longitude <= GnssConstants.LONGITUDE_MAX;
+        }
+
         public void ValidarCoordenadas(double latitude, double longitude)
         {
-            if (latitude < GnssConstants.LATITUDE_MIN || latitude > GnssConstants.LATITUDE_MAX)
+            if (!LatitudeValida(latitude))
                 throw new InvalidOperationException(
                     $"Latitude inválida: {latitude}. Deve estar entre {GnssConstants.LATITUDE_MIN} e {GnssConstants.LATITUDE_MAX}.");
 
-            if (longitude < GnssConstants.LONGITUDE_MIN || longitude > GnssConstants.LONGITUDE_MAX)
+            if (!LongitudeValida(longitude))
                 throw new InvalidOperationException(
                     $"Longitude inválida: {longitude}. Deve estar entre {GnssConstants.LONGITUDE_MIN} e {GnssConstants.LONGITUDE_MAX}.");
         }

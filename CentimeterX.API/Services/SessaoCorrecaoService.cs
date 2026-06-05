@@ -14,6 +14,12 @@ namespace CentimeterX.API.Services
             _context = context;
         }
 
+        // Verifica se a sessão ainda está ativa (não foi encerrada)
+        private bool SessaoEstaAtiva(SessaoCorrecao sessao)
+        {
+            return sessao.EncerradoEm == null;
+        }
+
         public StatusFix ClassificarFix(double precisaoHorizontalCm)
         {
             switch (precisaoHorizontalCm)
@@ -110,7 +116,7 @@ namespace CentimeterX.API.Services
                 if (sessao == null)
                     throw new InvalidOperationException($"Sessão {sessaoId} não encontrada.");
 
-                if (sessao.EncerradoEm != null)
+                if (!SessaoEstaAtiva(sessao))
                     throw new InvalidOperationException($"Sessão {sessaoId} já foi encerrada em {sessao.EncerradoEm}.");
 
                 sessao.EncerradoEm = DateTime.UtcNow;
@@ -129,5 +135,7 @@ namespace CentimeterX.API.Services
                 throw new InvalidOperationException("Erro ao encerrar a sessão no banco de dados.", ex);
             }
         }
+
+        
     }
 }

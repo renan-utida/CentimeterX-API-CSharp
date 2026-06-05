@@ -13,12 +13,20 @@ namespace CentimeterX.API.Services
             _context = context;
         }
 
+        // Normaliza o e-mail removendo espaços e convertendo para minúsculas
+        private string NormalizarEmail(string email)
+        {
+            return email.Trim().ToLowerInvariant();
+        }
+
         public async Task ValidarEmailDuplicado(string email, int? ignorarUsuarioId = null)
         {
             try
             {
+                var emailNormalizado = NormalizarEmail(email);
+
                 var existe = await _context.Usuarios
-                    .FirstOrDefaultAsync(u => u.Email == email
+                    .FirstOrDefaultAsync(u => u.Email == emailNormalizado
                                && (ignorarUsuarioId == null || u.IdUsuario != ignorarUsuarioId)) != null;
 
                 if (existe)

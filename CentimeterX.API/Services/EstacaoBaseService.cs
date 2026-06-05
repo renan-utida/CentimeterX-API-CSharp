@@ -13,6 +13,14 @@ namespace CentimeterX.API.Services
             _context = context;
         }
 
+        // Calcula a distância euclidiana entre uma estação e as coordenadas informadas
+        private double CalcularDistancia(EstacaoBase estacao, double latitude, double longitude)
+        {
+            return Math.Sqrt(
+                Math.Pow(estacao.Latitude - latitude, 2) +
+                Math.Pow(estacao.Longitude - longitude, 2));
+        }
+
         public async Task ValidarDisponibilidade(int estacaoId)
         {
             try
@@ -47,11 +55,7 @@ namespace CentimeterX.API.Services
                 // Calcula distância euclidiana de cada estação em relação às coordenadas informadas
                 foreach (var estacao in estacoes)
                 {
-                    var distancia = Math.Sqrt(
-                        Math.Pow(estacao.Latitude - latitude, 2) +
-                        Math.Pow(estacao.Longitude - longitude, 2));
-
-                    distancias[estacao.IdEstacao] = distancia;
+                    distancias[estacao.IdEstacao] = CalcularDistancia(estacao, latitude, longitude);
                 }
 
                 // Ordena pelo dicionário de distâncias e monta a lista resultado
