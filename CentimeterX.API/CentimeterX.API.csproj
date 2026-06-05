@@ -18,7 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="docs\" />
+    <Folder Include="docs\diagram\" />
+    <Folder Include="docs\sql\" />
+    <Folder Include="docs\postman\" />
+    <Folder Include="docs\prints\" />
   </ItemGroup>
 
 </Project>
