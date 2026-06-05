@@ -2,7 +2,7 @@
 
 **Disciplina:** C# Software Development  
 **Turma:** 3ESPW  
-**Professor:** Rafael Santos Novo Pereira  
+**Professor:** Rafael Santos Novo Pereira 
 
 **Integrantes:**
 | Nome | RM |
@@ -43,49 +43,49 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 **01 - Cadastrar Estacao Base SP (POST)**
 
-![01](../prints/01.png)
+![01](prints/01-Cadastrar_Estacao_Base_SP.png)
 
 ---
 
 **02 - Cadastrar Estacao Base RJ (POST)**
 
-![02](../prints/02.png)
+![02](prints/02-Cadastrar_Estacao_Base_RJ.png)
 
 ---
 
 **03 - Cadastrar Estacao Base - Latitude Invalida - 400 (POST)**
 
-![03](../prints/03.png)
+![03](prints/03-Cadastrar_Estacao_Base_LATITUDE_INVALIDA.png)
 
 ---
 
 **04 - Listar Todas as Estacoes (GET)**
 
-![04](../prints/04.png)
+![04](prints/04-Buscar_Todas_Estacoes_Base.png)
 
 ---
 
 **05 - Buscar Estacao por ID (GET)**
 
-![05](../prints/05.png)
+![05](prints/05-Buscar_Estacoes_Base_ID.png)
 
 ---
 
 **06 - Buscar Estacao Inexistente - 404 (GET)**
 
-![06](../prints/06.png)
+![06](prints/06-Buscar_Estacoes_Base_ID_INEXISTENTE.png)
 
 ---
 
 **07 - Listar Estacoes por Proximidade (GET)**
 
-![07](../prints/07.png)
+![07](prints/07-Buscar_Estacoes_Base_Proximidade.png)
 
 ---
 
 **08 - Atualizar Estacao Base (PUT)**
 
-![08](../prints/08.png)
+![08](prints/08-Atualizar_Estacoes_Base.png)
 
 ---
 
@@ -97,49 +97,49 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 **09 - Cadastrar Usuario Operador (POST)**
 
-![09](../prints/09.png)
+![09](prints/09-Cadastrar_Usuario_Operador.png)
 
 ---
 
 **10 - Cadastrar Usuario Gestor (POST)**
 
-![10](../prints/10.png)
+![10](prints/10-Cadastrar_Usuario_Gestor.png)
 
 ---
 
 **11 - Cadastrar Usuario - Email Duplicado - 400 (POST)**
 
-![11](../prints/11.png)
+![11](prints/11-Cadastrar_Usuario_EMAIL_DUPLICADO.png)
 
 ---
 
 **12 - Listar Todos os Usuarios (GET)**
 
-![12](../prints/12.png)
+![12](prints/12-Buscar_Todos_Usuarios.png)
 
 ---
 
 **13 - Buscar Usuario por ID (GET)**
 
-![13](../prints/13.png)
+![13](prints/13-Buscar_Usuario_ID.png)
 
 ---
 
 **14 - Buscar Usuario Inexistente - 404 (GET)**
 
-![14](../prints/14.png)
+![14](prints/14-Buscar_Usuario_ID_INEXISTENTE.png)
 
 ---
 
 **15 - Listar Usuarios por Perfil Operador (GET)**
 
-![15](../prints/15.png)
+![15](prints/15-Buscar_Usuario_Perfil.png)
 
 ---
 
 **16 - Atualizar Usuario (PUT)**
 
-![16](../prints/16.png)
+![16](prints/16-Atualizar_Usuario.png)
 
 ---
 
@@ -151,79 +151,79 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 **17 - Cadastrar Maquina Agricola (POST)**
 
-![17](../prints/17.png)
+![17](prints/17-Cadastrar_Rover_Maquina_Agricola.png)
 
 ---
 
 **18 - Cadastrar Drone (POST)**
 
-![18](../prints/18.png)
+![18](prints/18-Cadastrar_Rover_Drone.png)
 
 ---
 
 **19 - Cadastrar Veiculo Autonomo (POST)**
 
-![19](../prints/19.png)
+![19](prints/19-Cadastrar_Rover_Veiculo_Autonomo.png)
 
 ---
 
 **20 - Cadastrar Maquina Agricola - Nome Duplicado - 400 (POST)**
 
-![20](../prints/20.png)
+![20](prints/20-Cadastrar_Rover_NOME_DUPLICADO.png)
 
 ---
 
 **21 - Colocar Estacao Offline (PUT)**
 
-![21](../prints/21.png)
+![21](prints/21-Atualizar_Estacao_Base_Offline.png)
 
 ---
 
 **22 - Cadastrar Drone - Estacao Offline - 400 (POST)**
 
-![22](../prints/22.png)
+![22](prints/22-Cadastrar_Rover_ESTACAO_OFFLINE.png)
 
 ---
 
 **23 - Recolocar Estacao Online (PUT)**
 
-![23](../prints/23.png)
+![23](prints/23-Recolocar_Estacao_Base_Online.png)
 
 ---
 
 **24 - Listar Todos os Rovers (GET)**
 
-![24](../prints/24.png)
+![24](prints/24-Buscar_Todos_Rovers.png)
 
 ---
 
 **25 - Buscar Rover por ID (GET)**
 
-![25](../prints/25.png)
+![25](prints/25-Buscar_Rover_ID.png)
 
 ---
 
 **26 - Buscar Rover Inexistente - 404 (GET)**
 
-![26](../prints/26.png)
+![26](prints/26-Buscar_Rover_ID_INEXISTENTE.png)
 
 ---
 
 **27 - Atualizar Maquina Agricola (PUT)**
 
-![27](../prints/27.png)
+![27](prints/27-Atualizar_Rover_Maquina_Agricola.png)
 
 ---
 
 **28 - Atualizar Drone (PUT)**
 
-![28](../prints/28.png)
+![28](prints/28-Atualizar_Rover_Drone.png)
 
 ---
 
 **29 - Atualizar Veiculo Autonomo (PUT)**
 
-![29](../prints/29.png)
+![29](prints/29-Atualizar_Rover_Veiculo_Autonomo.png)
 
 ---
 
@@ -235,73 +235,73 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 **30 - Iniciar Sessao Maquina Agricola (POST)**
 
-![30](../prints/30.png)
+![30](prints/30-Iniciar_Sessao_Correcao_Maquina.png)
 
 ---
 
 **31 - Iniciar Sessao - Sessao Dupla Bloqueada - 400 (POST)**
 
-![31](../prints/31.png)
+![31](prints/31-Iniciar_Sessao_Correcao_DUPLA_BLOQUEADA.png)
 
 ---
 
 **32 - Buscar Sessao por ID - StatusFix SINGLE (GET)**
 
-![32](../prints/32.png)
+![32](prints/32-Buscar_Sessao_Correcao_ID.png)
 
 ---
 
 **33 - Atualizar Precisao para FIX (PUT)**
 
-![33](../prints/33.png)
+![33](prints/33-Atualizar_Sessao_Correcao_FIX.png)
 
 ---
 
 **34 - Encerrar Sessao - StatusFix FIX (PUT)**
 
-![34](../prints/34.png)
+![34](prints/34-Encerrar_Sessao_Correcao_FIX.png)
 
 ---
 
 **35 - Iniciar Sessao Drone (POST)**
 
-![35](../prints/35.png)
+![35](prints/35-Iniciar_Sessao_Correcao_Drone.png)
 
 ---
 
 **36 - Atualizar Precisao para FLOAT (PUT)**
 
-![36](../prints/36.png)
+![36](prints/36-Atualizar_Sessao_Correcao_FLOAT.png)
 
 ---
 
 **37 - Encerrar Sessao - StatusFix FLOAT (PUT)**
 
-![37](../prints/37.png)
+![37](prints/37-Encerrar_Sessao_Correcao_FLOAT.png)
 
 ---
 
 **38 - Iniciar Sessao Veiculo Autonomo (POST)**
 
-![38](../prints/38.png)
+![38](prints/38-Iniciar_Sessao_Correcao_Veiculo.png)
 
 ---
 
 **39 - Encerrar Sessao - StatusFix FIX (precisao zerada) (PUT)**
 
-![39](../prints/39.png)
+![39](prints/39-Encerrar_Sessao_Correcao_FIX_Sem_Atualizar_Precisao.png)
 
 ---
 
 **40 - Historico de Sessoes por Rover (GET)**
 
-![40](../prints/40.png)
+![40](prints/40-Buscar_Sessao_Correcao_ROVER_ID.png)
 
 ---
 
 **41 - Iniciar Sessao - Rover Inexistente - 400 (POST)**
 
-![41](../prints/41.png)
+![41](prints/41-Iniciar_Sessao_Correcao_ROVER_INEXISTENTE.png)
 
 ---
 
@@ -313,43 +313,43 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 **42 - Registrar Ocorrencia Valida (POST)**
 
-![42](../prints/42.png)
+![42](prints/42-Cadastrar_Ocorrencia_Valida.png)
 
 ---
 
 **43 - Registrar Ocorrencia - Latitude Invalida - 400 (POST)**
 
-![43](../prints/43.png)
+![43](prints/43-Cadastrar_Ocorrencia_LATITUDE_INVALIDA.png)
 
 ---
 
 **44 - Registrar Ocorrencia - Rover Inexistente - 404 (POST)**
 
-![44](../prints/44.png)
+![44](prints/44-Cadastrar_Ocorrencia_ROVER_INEXISTENTE.png)
 
 ---
 
 **45 - Listar Todas as Ocorrencias (GET)**
 
-![45](../prints/45.png)
+![45](prints/45-Buscar_Todas_Ocorrencias.png)
 
 ---
 
 **46 - Buscar Ocorrencia por ID (GET)**
 
-![46](../prints/46.png)
+![46](prints/46-Buscar_Ocorrencia_ID.png)
 
 ---
 
 **47 - Listar Ocorrencias por Rover (GET)**
 
-![47](../prints/47.png)
+![47](prints/47-Buscar_Ocorrencia_ROVER_ID.png)
 
 ---
 
 **48 - Filtrar Ocorrencias por Tipo e Periodo (GET)**
 
-![48](../prints/48.png)
+![48](prints/48-Buscar_Ocorrencia_FILTRO.png)
 
 ---
 
@@ -361,89 +361,89 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 **49 - Deletar Ocorrencia (DELETE)**
 
-![49](../prints/49.png)
+![49](prints/49-Deletar_Ocorrencia.png)
 
 ---
 
 **50 - Deletar Sessao 3 (DELETE)**
 
-![50](../prints/50.png)
+![50](prints/50-Deletar_Sessao_Correcao_3.png)
 
 ---
 
 **51 - Deletar Sessao 2 (DELETE)**
 
-![51](../prints/51.png)
+![51](prints/51-Deletar_Sessao_Correcao_2.png)
 
 ---
 
 **52 - Deletar Sessao 1 (DELETE)**
 
-![52](../prints/52.png)
+![52](prints/52-Deletar_Sessao_Correcao_1.png)
 
 ---
 
 **53 - Deletar Maquina Agricola (DELETE)**
 
-![53](../prints/53.png)
+![53](prints/53-Deletar_Rover_Maquina.png)
 
 ---
 
 **54 - Deletar Drone (DELETE)**
 
-![54](../prints/54.png)
+![54](prints/54-Deletar_Rover_Drone.png)
 
 ---
 
 **55 - Deletar Veiculo Autonomo (DELETE)**
 
-![55](../prints/55.png)
+![55](prints/55-Deletar_Rover_Veiculo.png)
 
 ---
 
 **56 - Deletar Usuario Gestor (DELETE)**
 
-![56](../prints/56.png)
+![56](prints/56-Deletar_Usuario_2.png)
 
 ---
 
 **57 - Deletar Usuario Operador (DELETE)**
 
-![57](../prints/57.png)
+![57](prints/57-Deletar_Usuario_1.png)
 
 ---
 
 **58 - Deletar Estacao RJ (DELETE)**
 
-![58](../prints/58.png)
+![58](prints/58-Deletar_Estacao_2.png)
 
 ---
 
 **59 - Deletar Estacao SP (DELETE)**
 
-![59](../prints/59.png)
+![59](prints/59-Deletar_Estacao_1.png)
 
 ---
 
 ## Banco de Dados — Oracle SQL Developer
 
-> Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em `docs/sql/CentimeterX_consultas.sql`.
+> Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em [`sql/CentimeterX_consultas.sql`](sql/CentimeterX_consultas.sql).
 
 **Tabelas criadas e dados inseridos:**
 
-![sql-tabelas](../prints/sql-tabelas.png)
+![sql-tabelas](prints/sql-tabelas.png)
 
 **Resultados dos SELECTs por tabela:**
 
-![sql-resultados-1](../prints/sql-resultados-1.png)
+![sql-resultados-1](prints/sql-resultados-1.png)
 
 **Resultado do JOIN completo — Rovers com Estacao Base e Usuario:**
 
-![sql-resultados-2](../prints/sql-resultados-2.png)
+![sql-resultados-2](prints/sql-resultados-2.png)
 
 **Resultado do JOIN completo — Sessoes de Correcao:**
 
-![sql-resultados-3](../prints/sql-resultados-3.png)
+![sql-resultados-3](prints/sql-resultados-3.png)
 
 ---
 
