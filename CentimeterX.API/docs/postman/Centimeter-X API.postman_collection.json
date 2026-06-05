@@ -1,0 +1,1688 @@
+{
+  "info": {
+    "_postman_id": "50ff08e5-24be-465a-838b-15c0cdbf5dd8",
+    "name": "Centimeter-X API",
+    "description": "# API completa do Centimeter-X - High-Precision Positioning as a Service (HPaaS).\n\n#### Plataforma de correção GNSS/PPP que transforma a precisão de metros em centímetros para rovers de campo (máquinas agrícolas, drones e veículos autônomos).\n\n---\n\n**Ordem recomendada para cadastro:**\n\nEstacoesBase → Usuarios → Rovers → SessoesCorrecao → Ocorrencias\n\n**Ordem recomendada para deleção:**\n\nOcorrencias → SessoesCorrecao → Rovers → Usuarios → EstacoesBase\n\n---\n\n59 cenários organizados em 5 controllers.  \nGlobal Solution - C# Software Development | FIAP 3ESPW | 2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37874153"
+  },
+  "item": [
+    {
+      "name": "EstacoesBase",
+      "item": [
+        {
+          "name": "01 - Cadastrar Estacao Base SP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"EST-SP-01\",\n  \"nome\": \"Estação São Paulo Centro\",\n  \"latitude\": -23.5505,\n  \"longitude\": -46.6333,\n  \"online\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "02 - Cadastrar Estacao Base RJ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"EST-RJ-01\",\n  \"nome\": \"Estação Rio de Janeiro\",\n  \"latitude\": -22.9068,\n  \"longitude\": -43.1729,\n  \"online\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "03 - Cadastrar Estacao Base - Latitude Invalida (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"EST-INVALIDA\",\n  \"nome\": \"Estação Inválida\",\n  \"latitude\": -220.0,\n  \"longitude\": -43.1729,\n  \"online\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "04 - Listar Todas as Estacoes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "05 - Buscar Estacao por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "06 - Buscar Estacao Inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/999",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "07 - Listar Estacoes por Proximidade",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/proximidade?latitude=-23.0&longitude=-46.0",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "proximidade"
+              ],
+              "query": [
+                {
+                  "key": "latitude",
+                  "value": "-23.0"
+                },
+                {
+                  "key": "longitude",
+                  "value": "-46.0"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "08 - Atualizar Estacao Base",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEstacao\": 1,\n  \"codigo\": \"EST-SP-01\",\n  \"nome\": \"Estação São Paulo Centro — Atualizada\",\n  \"latitude\": -23.5505,\n  \"longitude\": -46.6333,\n  \"online\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "58 - Deletar Estacao RJ",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "59 - Deletar Estacao SP",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "### Gerencia as estações terrestres de referência GNSS.\n\nUma estação base online é pré-requisito para associar rovers e iniciar sessões de correção.  \nInclui listagem por proximidade geográfica e validação de coordenadas."
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "09 - Cadastrar Usuario Operador",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Renan Dias Utida\",\n  \"email\": \"renan@centimeterx.com\",\n  \"perfil\": \"Operador\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "10 - Cadastrar Usuario Gestor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Rafael Duarte\",\n  \"email\": \"rafael@centimeterx.com\",\n  \"perfil\": \"Gestor\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "11 - Cadastrar Usuario - Email Duplicado (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Outro Usuario\",\n  \"email\": \"renan@centimeterx.com\",\n  \"perfil\": \"Operador\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "12 - Listar Todos os Usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "13 - Buscar Usuario por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "14 - Buscar Usuario Inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios/999",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios",
+                "999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "15 - Listar Usuarios por Perfil Operador",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios/perfil/Operador",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios",
+                "perfil",
+                "Operador"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "16 - Atualizar Usuario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idUsuario\": 1,\n  \"nome\": \"Renan Dias Utida Atualizado\",\n  \"email\": \"renan@centimeterx.com\",\n  \"perfil\": \"Operador\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "56 - Deletar Usuario Gestor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "57 - Deletar Usuario Operador",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/usuarios/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "usuarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "### Gerencia os usuários da plataforma com perfis de acesso (Operador, Gestor, Administrador).\n\nCada rover é vinculado a um usuário. Valida e-mail duplicado e protege administradores  \nde rebaixarem o próprio perfil."
+    },
+    {
+      "name": "Rovers",
+      "item": [
+        {
+          "name": "17 - Cadastrar Maquina Agricola",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Trator Alpha-01\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 1,\n  \"idUsuario\": 1,\n  \"modeloTrator\": \"John Deere 8R\",\n  \"larguraImplemento\": 12.5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/maquina-agricola",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "maquina-agricola"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "18 - Cadastrar Drone",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Drone Mapeador DJI-01\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 1,\n  \"idUsuario\": 1,\n  \"autonomiaVoo\": 45,\n  \"altitudeMaxima\": 120.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/drone",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "drone"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "19 - Cadastrar Veiculo Autonomo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Veículo Auto-01\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 2,\n  \"idUsuario\": 2,\n  \"nivelAutonomia\": 4,\n  \"velocidadeMaxima\": 80.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/veiculo-autonomo",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "veiculo-autonomo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "20 - Cadastrar Maquina Agricola - Nome Duplicado (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Trator Alpha-01\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 1,\n  \"idUsuario\": 1,\n  \"modeloTrator\": \"Case IH\",\n  \"larguraImplemento\": 8.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/maquina-agricola",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "maquina-agricola"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "21 - Colocar Estacao Offline (Pre-teste)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEstacao\": 1,\n  \"codigo\": \"EST-SP-01\",\n  \"nome\": \"Estação São Paulo Centro — Atualizada\",\n  \"latitude\": -23.5505,\n  \"longitude\": -46.6333,\n  \"online\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "22 - Cadastrar Drone - Estacao Offline (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Drone Beta-02\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 1,\n  \"idUsuario\": 1,\n  \"autonomiaVoo\": 30,\n  \"altitudeMaxima\": 100.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/drone",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "drone"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "23 - Recolocar Estacao Online (Pos-teste)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEstacao\": 1,\n  \"codigo\": \"EST-SP-01\",\n  \"nome\": \"Estação São Paulo Centro — Atualizada\",\n  \"latitude\": -23.5505,\n  \"longitude\": -46.6333,\n  \"online\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/estacoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "estacoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "24 - Listar Todos os Rovers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/rovers",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "25 - Buscar Rover por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "26 - Buscar Rover Inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/999",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "27 - Atualizar Maquina Agricola",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 1,\n  \"nome\": \"Trator Alpha-01 Atualizado\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 1,\n  \"idUsuario\": 1,\n  \"modeloTrator\": \"John Deere 9R\",\n  \"larguraImplemento\": 15.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/maquina-agricola/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "maquina-agricola",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "28 - Atualizar Drone",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 2,\n  \"nome\": \"Drone Mapeador DJI-01 Atualizado\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 1,\n  \"idUsuario\": 1,\n  \"autonomiaVoo\": 60,\n  \"altitudeMaxima\": 150.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/drone/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "drone",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "29 - Atualizar Veiculo Autonomo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 3,\n  \"nome\": \"Veículo Auto-01 Atualizado\",\n  \"status\": \"Ativo\",\n  \"idEstacaoBase\": 2,\n  \"idUsuario\": 2,\n  \"nivelAutonomia\": 5,\n  \"velocidadeMaxima\": 100.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/veiculo-autonomo/3",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "veiculo-autonomo",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "53 - Deletar Maquina Agricola",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/maquina-agricola/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "maquina-agricola",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "54 - Deletar Drone",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/drone/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "drone",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "55 - Deletar Veiculo Autonomo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/rovers/veiculo-autonomo/3",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "rovers",
+                "veiculo-autonomo",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "### Gerencia os equipamentos de campo que recebem correção GNSS centimétrica.  \nSuporta 3 tipos especializados: MaquinaAgricola, Drone e VeiculoAutonomo.  \nValida nome duplicado por usuário e bloqueia associação com estação offline."
+    },
+    {
+      "name": "SessoesCorrecao",
+      "item": [
+        {
+          "name": "30 - Iniciar Sessao Maquina Agricola",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 1,\n  \"idEstacaoBase\": 1,\n  \"sistemaSatelite\": \"GPS+Galileo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "31 - Iniciar Sessao - Sessao Dupla Bloqueada (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 1,\n  \"idEstacaoBase\": 1,\n  \"sistemaSatelite\": \"GPS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "32 - Buscar Sessao por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "33 - Atualizar Precisao para FIX",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idSessao\": 1,\n  \"idRover\": 1,\n  \"idEstacaoBase\": 1,\n  \"sistemaSatelite\": \"GPS+Galileo\",\n  \"precisaoHorizontalCm\": 3.2,\n  \"precisaoVerticalCm\": 4.1,\n  \"iniciouEm\": \"2026-06-04T00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "34 - Encerrar Sessao - Status FIX",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/1/encerrar",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "1",
+                "encerrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "35 - Iniciar Sessao Drone",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 2,\n  \"idEstacaoBase\": 1,\n  \"sistemaSatelite\": \"Galileo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "36 - Atualizar Precisao para FLOAT",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idSessao\": 2,\n  \"idRover\": 2,\n  \"idEstacaoBase\": 1,\n  \"sistemaSatelite\": \"Galileo\",\n  \"precisaoHorizontalCm\": 25.0,\n  \"precisaoVerticalCm\": 30.0,\n  \"iniciouEm\": \"2026-06-04T00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "37 - Encerrar Sessao - Status FLOAT",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/2/encerrar",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "2",
+                "encerrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "38 - Iniciar Sessao Veiculo Autonomo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 3,\n  \"idEstacaoBase\": 2,\n  \"sistemaSatelite\": \"GPS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "39 - Encerrar Sessao - Status FIX (precisao zerada)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/3/encerrar",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "3",
+                "encerrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "40 - Historico de Sessoes por Rover",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/rover/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "rover",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "41 - Iniciar Sessao - Rover Inexistente (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 999,\n  \"idEstacaoBase\": 1,\n  \"sistemaSatelite\": \"GPS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "50 - Deletar Sessao 3",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/3",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "51 - Deletar Sessao 2",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "52 - Deletar Sessao 1",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/sessoes/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "sessoes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "### Gerencia o ciclo de vida completo de uma sessão de correção PPP.\n\nO StatusFix é calculado automaticamente com base na precisaoHorizontalCm:\n\n- FIX → precisão ≤ 5 cm (centimétrica)\n    \n- FLOAT → precisão ≤ 50 cm (decimétrica)\n    \n- SINGLE → precisão > 50 cm (métrica)\n    \n\nBloqueia sessão dupla para o mesmo rover."
+    },
+    {
+      "name": "Ocorrencias",
+      "item": [
+        {
+          "name": "42 - Registrar Ocorrencia Valida",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 1,\n  \"tipo\": \"PerdaDeSinal\",\n  \"descricao\": \"Perda de sinal durante operação na fazenda Norte\",\n  \"latitude\": -23.5505,\n  \"longitude\": -46.6333,\n  \"fotoUrl\": \"https://storage.centimeterx.com/ocorrencias/foto001.jpg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "43 - Registrar Ocorrencia - Latitude Invalida (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 1,\n  \"tipo\": \"Deriva\",\n  \"descricao\": \"Deriva detectada\",\n  \"latitude\": -95.0,\n  \"longitude\": -46.6333,\n  \"fotoUrl\": \"sem-foto\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "44 - Registrar Ocorrencia - Rover Inexistente (404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idRover\": 999,\n  \"tipo\": \"Obstrucao\",\n  \"descricao\": \"Obstrução detectada\",\n  \"latitude\": -23.5505,\n  \"longitude\": -46.6333,\n  \"fotoUrl\": \"sem-foto\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "45 - Listar Todas as Ocorrencias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "46 - Buscar Ocorrencia por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "47 - Listar Ocorrencias por Rover",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias/rover/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias",
+                "rover",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "48 - Filtrar Ocorrencias por Tipo e Periodo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias/rover/1/filtro?tipo=PerdaDeSinal&inicio=2026-01-01",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias",
+                "rover",
+                "1",
+                "filtro"
+              ],
+              "query": [
+                {
+                  "key": "tipo",
+                  "value": "PerdaDeSinal"
+                },
+                {
+                  "key": "inicio",
+                  "value": "2026-01-01"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "49 - Deletar Ocorrencia",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/ocorrencias/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "ocorrencias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "### Registra eventos adversos identificados em campo (PerdaDeSinal, Deriva, Obstrucao, Outro).\n\nRegistros históricos imutáveis - PUT removido intencionalmente.  \nValida coordenadas geográficas e suporta filtro por tipo e período."
+    }
+  ]
+}
