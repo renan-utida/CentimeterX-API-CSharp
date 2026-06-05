@@ -93,55 +93,56 @@ Os satélites GNSS transmitem continuamente sinais de tempo e posição a partir
 ### Estrutura de pastas
 
 ```
-CentimeterX.API/
-├── Controllers/
-│   ├── EstacoesBaseController.cs
-│   ├── RoversController.cs
-│   ├── SessoesCorrecaoController.cs
-│   ├── OcorrenciasController.cs
-│   └── UsuariosController.cs
-├── Data/
-│   └── AppDbContext.cs
-├── Migrations/
-│   └── (gerado pelo EF Core)
-├── Models/
-│   ├── Enums/
-│   │   ├── StatusRover.cs
-│   │   ├── StatusFix.cs
-│   │   ├── TipoOcorrencia.cs
-│   │   └── PerfilUsuario.cs
-│   ├── Rover.cs                        ← classe abstrata
-│   ├── MaquinaAgricola.cs              ← classe filha
-│   ├── Drone.cs                        ← classe filha
-│   ├── VeiculoAutonomo.cs              ← classe filha
-│   ├── EstacaoBase.cs
-│   ├── SessaoCorrecao.cs
-│   ├── Ocorrencia.cs
-│   ├── Usuario.cs
-│   └── GnssConstants.cs                ← classe estática
-├── Services/
-│   ├── ICorrecaoService.cs             ← interface
-│   ├── SessaoCorrecaoService.cs
-│   ├── RoverService.cs
-│   ├── EstacaoBaseService.cs
-│   ├── OcorrenciaService.cs
-│   └── UsuarioService.cs
-├── docs/
-│   ├── evidencias.md
-│   ├── diagram/
-│   │   ├── Diagrama_Centimeter-X_GlobalSolution.drawio
-│   │   └── Diagrama_Centimeter-X_GlobalSolution.png
-│   ├── postman/
-│   │   └── Centimeter-X_API.postman_collection.json
-│   ├── prints/
-│   │   ├── (prints do Swagger)
-│   │   ├── (prints dos testes - 01 ao 59)
-│   │   └── (prints do banco de dados Oracle)
-│   └── sql/
-│       └── Centimeter-X_consultas.sql
-├── appsettings.json
-├── Program.cs
-└── README.md
+CentimeterX.API/                        ← raiz do repositório
+├── README.md                           ← documentação principal
+└── CentimeterX.API/                    ← projeto ASP.NET Core
+    ├── Controllers/
+    │   ├── EstacoesBaseController.cs
+    │   ├── RoversController.cs
+    │   ├── SessoesCorrecaoController.cs
+    │   ├── OcorrenciasController.cs
+    │   └── UsuariosController.cs
+    ├── Data/
+    │   └── AppDbContext.cs
+    ├── Migrations/
+    │   └── (gerado pelo EF Core)
+    ├── Models/
+    │   ├── Enums/
+    │   │   ├── StatusRover.cs
+    │   │   ├── StatusFix.cs
+    │   │   ├── TipoOcorrencia.cs
+    │   │   └── PerfilUsuario.cs
+    │   ├── Rover.cs                    ← classe abstrata
+    │   ├── MaquinaAgricola.cs          ← classe filha
+    │   ├── Drone.cs                    ← classe filha
+    │   ├── VeiculoAutonomo.cs          ← classe filha
+    │   ├── EstacaoBase.cs
+    │   ├── SessaoCorrecao.cs
+    │   ├── Ocorrencia.cs
+    │   ├── Usuario.cs
+    │   └── GnssConstants.cs            ← classe estática
+    ├── Services/
+    │   ├── ICorrecaoService.cs         ← interface
+    │   ├── SessaoCorrecaoService.cs
+    │   ├── RoverService.cs
+    │   ├── EstacaoBaseService.cs
+    │   ├── OcorrenciaService.cs
+    │   └── UsuarioService.cs
+    ├── docs/
+    │   ├── evidence.md
+    │   ├── diagram/
+    │   │   ├── Diagrama_Centimeter-X_GlobalSolution.drawio
+    │   │   └── Diagrama_Centimeter-X_GlobalSolution.png
+    │   ├── postman/
+    │   │   └── Centimeter-X_API.postman_collection.json
+    │   ├── prints/
+    │   │   ├── (prints do Swagger - endpoints)
+    │   │   ├── (prints dos testes 01 ao 59)
+    │   │   └── (prints do banco de dados Oracle)
+    │   └── sql/
+    │       └── Centimeter-X_consultas.sql
+    ├── appsettings.json
+    └── Program.cs
 ```
 
 ### Hierarquia de herança
@@ -988,7 +989,7 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 
 **Diagrama:** disponível em [`CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png`](CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png).
 
-**Prints de Evidências de execução:** disponíveis em [`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md) com prints de todos os 59 cenários testados no Swagger.
+**Prints de Evidências de execução:** disponíveis em [`CentimeterX.API/docs/evidence.md`](CentimeterX.API/docs/evidence.md) com prints de todos os 59 cenários testados no Swagger.
 
 **Link vídeo demonstrativo dos testes: **
 
@@ -1010,7 +1011,7 @@ Para importar: abra o Postman → **File → Import** → selecione o arquivo.
 
 ## 11. Evidências de execução
 
-> Os principais cenários de teste estão documentados aqui. As evidências completas de todos os **59 cenários** testados - incluindo todas as validações de negócio, casos de erro e deletes - estão disponíveis em [`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md).
+> Os principais cenários de teste estão documentados aqui. As evidências completas de todos os **59 cenários** testados - incluindo todas as validações de negócio, casos de erro e deletes - estão disponíveis em [`CentimeterX.API/docs/evidence.md`](CentimeterX.API/docs/evidence.md).
 
 **Ordem recomendada para cadastro:** `EstacoesBase` → `Usuarios` → `Rovers` → `SessoesCorrecao` → `Ocorrencias`
 
@@ -1227,7 +1228,7 @@ Para deletar, é recomendado remover nessa ordem:
 
 ---
 
-As evidências completas de todos os 59 cenários testados, incluindo dados inseridos nas tabelas e JOINs completos, estão disponíveis em [`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md).
+Os dados inseridos nas tabelas e JOINs completos estão disponíveis em [`CentimeterX.API/docs/evidence.md`](CentimeterX.API/docs/evidence.md).
 
 - [`CentimeterX.API/docs/sql/Centimeter-X_consultas.sql`](CentimeterX.API/docs/sql/Centimeter-X_consultas.sql) - scripts de consulta Oracle com SELECTs simples e JOINs completos das 5 tabelas
 
