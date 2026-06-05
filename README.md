@@ -182,9 +182,9 @@ A API está configurada para serializar enums como strings (`"Operador"` em vez 
 
 ## 6. Diagrama de classes
 
-![Diagrama de Classes](docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png)
+![Diagrama de Classes](CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png)
 
-O diagrama completo em formato `.drawio` está disponível em [`docs/diagram/Diagrama_Centimeter-X_GlobalSolution.drawio`](docs/diagram/Diagrama_Centimeter-X_GlobalSolution.drawio).
+O diagrama completo em formato `.drawio` está disponível em [`CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.drawio`](CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.drawio).
 
 ---
 
@@ -234,12 +234,12 @@ Isso criará as 5 tabelas no Oracle:
 
 Pressione **F5** no Visual Studio. O Swagger abrirá automaticamente em:
 ```
-https://localhost:7126/swagger
+https://localhost:7175/swagger
 ```
 
 **5. Testar os endpoints**
 
-Use o Swagger UI ou importe a collection Postman disponível em `docs/postman/Centimeter-X_API.postman_collection.json`.
+Use o Swagger UI ou importe a collection Postman disponível em `CentimeterX.API/docs/postman/Centimeter-X_API.postman_collection.json`.
 
 ---
 
@@ -976,9 +976,9 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 
 **README:** este documento.
 
-**Diagrama:** disponível em [`docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png`](docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png).
+**Diagrama:** disponível em [`CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png`](CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.png).
 
-**Prints de Evidências de execução:** disponíveis em [`docs/evidencias.md`](docs/evidencias.md) com prints de todos os 59 cenários testados no Swagger.
+**Prints de Evidências de execução:** disponíveis em [`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md) com prints de todos os 59 cenários testados no Swagger.
 
 **Link vídeo demonstrativo dos testes: **
 
@@ -989,7 +989,7 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 A collection com todos os 59 cenários organizados por controller está disponível em:
 
 ```
-docs/postman/Centimeter-X_API.postman_collection.json
+CentimeterX.API/docs/postman/Centimeter-X_API.postman_collection.json
 ```
 
 Para importar: abra o Postman → **File → Import** → selecione o arquivo.
@@ -1007,8 +1007,8 @@ críticos de cada controller e as principais validações de negócio da platafo
 
 > Prints da tela inicial do Swagger com todos os controllers e endpoints expostos
 
-![Print Swagger endpoints](docs/prints/swagger-endpoints-1.png)
-![Print Swagger endpoints](docs/prints/swagger-endpoints-2.png)
+![Print Swagger endpoints](CentimeterX.API/docs/prints/swagger-endpoints-1.png)
+![Print Swagger endpoints](CentimeterX.API/docs/prints/swagger-endpoints-2.png)
 
 ---
 
@@ -1196,16 +1196,16 @@ Para deletar, é recomendado remover nessa ordem:
 
 > Prints das tabelas criadas e dos dados inseridos após os testes 01 a 24
 > (antes dos deletes). Scripts disponíveis em
-> [`docs/sql/CentimeterX_consultas.sql`](docs/sql/CentimeterX_consultas.sql)
+> [`CentimeterX.API/docs/sql/CentimeterX_consultas.sql`](CentimeterX.API/docs/sql/CentimeterX_consultas.sql)
 
-![sql-tabelas](docs/prints/sql-tabelas.png)
+![CentimeterX.API/sql-tabelas](CentimeterX.API/docs/prints/sql-tabelas.png)
 
-![sql-dados](docs/prints/sql-dados.png)
+![CentimeterX.API/sql-dados](CentimeterX.API/docs/prints/sql-dados.png)
 
 ---
 
 As evidências completas de todos os 59 cenários testados estão disponíveis em
-[`docs/evidencias.md`](docs/evidencias.md).
+[`CentimeterX.API/docs/evidencias.md`](CentimeterX.API/docs/evidencias.md).
 
 - Vídeo demonstrativo - disponível na entrega via Teams, cobrindo os 6 blocos
   de testes organizados por controller
