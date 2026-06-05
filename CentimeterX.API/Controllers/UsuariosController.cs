@@ -130,7 +130,8 @@ namespace CentimeterX.API.Controllers
                 await _usuarioService.ValidarEmailDuplicado(usuario.Email, id);
 
                 // Protege contra administrador rebaixando o próprio perfil
-                _usuarioService.ValidarAutoperfil(id, usuario.IdUsuario, usuario.Perfil);
+                if (usuarioExistente.Perfil == PerfilUsuario.Administrador)
+                    _usuarioService.ValidarAutoperfil(id, usuario.IdUsuario, usuario.Perfil);
 
                 _context.Entry(usuarioExistente).CurrentValues.SetValues(usuario);
                 await _context.SaveChangesAsync();

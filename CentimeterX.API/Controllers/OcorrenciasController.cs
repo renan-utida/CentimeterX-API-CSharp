@@ -136,6 +136,8 @@ namespace CentimeterX.API.Controllers
                 await _ocorrenciaService.ValidarPertencimentoRover(ocorrencia.IdRover, rover.IdUsuario);
 
                 ocorrencia.CriadaEm = DateTime.UtcNow;
+                ocorrencia.FotoUrl = ocorrencia.FotoUrl ?? string.Empty;
+                ocorrencia.Descricao = ocorrencia.Descricao ?? string.Empty;
 
                 _context.Ocorrencias.Add(ocorrencia);
                 await _context.SaveChangesAsync();

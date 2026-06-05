@@ -18,8 +18,8 @@ namespace CentimeterX.API.Services
             try
             {
                 var existe = await _context.Usuarios
-                    .AnyAsync(u => u.Email == email
-                               && (ignorarUsuarioId == null || u.IdUsuario != ignorarUsuarioId));
+                    .FirstOrDefaultAsync(u => u.Email == email
+                               && (ignorarUsuarioId == null || u.IdUsuario != ignorarUsuarioId)) != null;
 
                 if (existe)
                     throw new InvalidOperationException($"O e-mail '{email}' já está cadastrado.");

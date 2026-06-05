@@ -41,9 +41,9 @@ namespace CentimeterX.API.Services
             try
             {
                 var existe = await _context.Rovers
-                    .AnyAsync(r => r.Nome == nome
+                    .FirstOrDefaultAsync(r => r.Nome == nome
                                 && r.IdUsuario == usuarioId
-                                && (ignorarRoverId == null || r.IdRover != ignorarRoverId));
+                                && (ignorarRoverId == null || r.IdRover != ignorarRoverId)) != null;
 
                 if (existe)
                     throw new InvalidOperationException($"Já existe um rover com o nome '{nome}' cadastrado para este usuário.");

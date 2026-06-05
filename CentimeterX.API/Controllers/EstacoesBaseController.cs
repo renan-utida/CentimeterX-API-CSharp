@@ -90,6 +90,13 @@ namespace CentimeterX.API.Controllers
             {
                 estacao.UltimaAtualizacao = DateTime.UtcNow;
 
+                // Valida coordenadas
+                if (estacao.Latitude < GnssConstants.LATITUDE_MIN || estacao.Latitude > GnssConstants.LATITUDE_MAX)
+                    return BadRequest(new { mensagem = $"Latitude inválida: {estacao.Latitude}. Deve estar entre {GnssConstants.LATITUDE_MIN} e {GnssConstants.LATITUDE_MAX}." });
+
+                if (estacao.Longitude < GnssConstants.LONGITUDE_MIN || estacao.Longitude > GnssConstants.LONGITUDE_MAX)
+                    return BadRequest(new { mensagem = $"Longitude inválida: {estacao.Longitude}. Deve estar entre {GnssConstants.LONGITUDE_MIN} e {GnssConstants.LONGITUDE_MAX}." });
+
                 _context.EstacoesBase.Add(estacao);
                 await _context.SaveChangesAsync();
 
@@ -115,6 +122,13 @@ namespace CentimeterX.API.Controllers
             {
                 if (id != estacao.IdEstacao)
                     return BadRequest(new { mensagem = "ID da URL não confere com o ID do corpo." });
+
+                // Valida coordenadas
+                if (estacao.Latitude < GnssConstants.LATITUDE_MIN || estacao.Latitude > GnssConstants.LATITUDE_MAX)
+                    return BadRequest(new { mensagem = $"Latitude inválida: {estacao.Latitude}. Deve estar entre {GnssConstants.LATITUDE_MIN} e {GnssConstants.LATITUDE_MAX}." });
+
+                if (estacao.Longitude < GnssConstants.LONGITUDE_MIN || estacao.Longitude > GnssConstants.LONGITUDE_MAX)
+                    return BadRequest(new { mensagem = $"Longitude inválida: {estacao.Longitude}. Deve estar entre {GnssConstants.LONGITUDE_MIN} e {GnssConstants.LONGITUDE_MAX}." });
 
                 estacao.UltimaAtualizacao = DateTime.UtcNow;
 
