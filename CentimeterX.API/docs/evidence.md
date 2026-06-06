@@ -1,5 +1,9 @@
 # Evidências de Funcionamento — Centimeter-X API
 
+**Repositório:** [github.com/renan-utida/CentimeterX-API-CSharp](https://github.com/renan-utida/CentimeterX-API-CSharp)
+
+**Vídeo demonstrativo (Swagger):** [youtu.be/bMFVy9S9cDc](https://youtu.be/bMFVy9S9cDc)
+
 **Disciplina:** C# Software Development  
 **Turma:** 3ESPW  
 **Professor:** Rafael Santos Novo Pereira 
