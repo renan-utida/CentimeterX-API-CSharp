@@ -925,7 +925,7 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 
 ## 9. Critérios da Global Solution
 
-### 1. Modelagem de Domínio & POO
+### 9.1. Modelagem de Domínio & POO
 
 **Herança com sentido conceitual:** `Rover` é a classe abstrata base para todos os equipamentos de campo. Não existe instância de `Rover` diretamente - todo rover é necessariamente uma `MaquinaAgricola`, um `Drone` ou um `VeiculoAutonomo`. Cada subclasse adiciona atributos específicos do seu tipo real (`ModeloTrator`, `AutonomiaVoo`, `NivelAutonomia`).
 
@@ -947,13 +947,13 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 - `TipoOcorrencia` (PerdaDeSinal, Deriva, Obstrucao, Outro) - categoriza eventos de campo
 - `PerfilUsuario` (Operador, Gestor, Administrador) - controla acesso na plataforma
 
-### 2. Abstração e Interfaces
+### 9.2. Abstração e Interfaces
 
 **Classe abstrata com sentido real:** `Rover` é `abstract` porque não existe rover sem tipo - a abstração reflete a realidade do negócio, não foi criada por enfeite.
 
 **Interface com contrato real:** `ICorrecaoService` define o contrato do serviço de correção GNSS com 4 métodos (`IniciarSessao`, `EncerrarSessao`, `ObterPrecisao`, `ClassificarFix`). Implementada por `SessaoCorrecaoService` e injetada no `SessoesCorrecaoController` - o único controller que usa a interface diretamente, demonstrando desacoplamento real.
 
-### 3. Lógica de Fluxo, Métodos e Datas
+### 9.3. Lógica de Fluxo, Métodos e Datas
 
 **Métodos coesos:** cada método tem uma única responsabilidade - `ClassificarFix` só classifica, `ValidarCoordenadas` só valida coordenadas, `ValidarNomeDuplicado` só verifica duplicidade, `AtualizarStatusPorUltimaSessao` só atualiza status.
 
@@ -971,7 +971,7 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 - `UltimaAtualizacao` - atualizado automaticamente em cada PUT de estação
 - `DateTime.UtcNow - ultimaSessao.EncerradoEm.Value > TimeSpan.FromHours(GnssConstants.STATUS_INATIVIDADE_HORAS)` - janela temporal de 24h para detectar inatividade
 
-### 4. Tratamento de Exceções
+### 9.4. Tratamento de Exceções
 
 `catch (DbUpdateException)` - capturado em todos os métodos de persistência nos controllers e services, com `_logger.LogError` e retorno `500` com mensagem clara.
 
@@ -981,7 +981,7 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 
 `ILogger<T>` nativo do ASP.NET Core injetado em todos os 5 controllers, com `LogError` para falhas de banco e exceções inesperadas, e `LogWarning` para violações de regra de negócio.
 
-### 5. Organização
+### 9.5. Organização
 
 **Estrutura de pastas e nomenclatura:** `Models/`, `Models/Enums/`, `Data/`, `Services/`, `Controllers/`, `docs/`. Prefixo `CX_` em todas as tabelas Oracle. Nomenclatura consistente em português para o domínio.
 
