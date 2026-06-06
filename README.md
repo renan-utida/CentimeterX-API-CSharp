@@ -7,6 +7,10 @@
 ![EF Core](https://img.shields.io/badge/EF_Core-9.0-512BD4?style=flat-square&logo=dotnet)
 ![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=flat-square&logo=swagger)
 
+**Repositório:** [github.com/renan-utida/CentimeterX-API-CSharp](https://github.com/renan-utida/CentimeterX-API-CSharp)
+
+**Vídeo demonstrativo:** [youtu.be/bMFVy9S9cDc](https://youtu.be/bMFVy9S9cDc)
+
 ---
 
 ## 1. Integrantes
@@ -991,21 +995,21 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 
 **Prints de Evidências de execução:** disponíveis em [`CentimeterX.API/docs/evidence.md`](CentimeterX.API/docs/evidence.md) com prints de todos os 59 cenários testados no Swagger.
 
-**Link vídeo demonstrativo dos testes: **
+**Vídeo demonstrativo:** disponível no YouTube em [youtu.be/bMFVy9S9cDc](https://youtu.be/bMFVy9S9cDc), cobrindo os 59 cenários organizados nos 6 blocos de testes.
 
 ---
 
 ## 10. Collection Postman
 
-A collection com todos os 59 cenários organizados por controller está disponível em:
+Duas collections estão disponíveis em `CentimeterX.API/docs/postman/`:
 
-```
-CentimeterX.API/docs/postman/Centimeter-X_API.postman_collection.json
-```
+**`Centimeter-X_API.postman_collection.json`** — collection completa com todos os 59 cenários de teste organizados por controller, incluindo fluxos de sucesso, validações de negócio e casos de erro. Ideal para reproduzir os testes documentados no `evidence.md`.
 
-Para importar: abra o Postman → **File → Import** → selecione o arquivo.
+**`Centimeter-X_API_Swagger.postman_collection.json`** — collection de referência rápida com uma requisição por endpoint e body de exemplo para preenchimento. Ideal para explorar a API pela primeira vez.
 
-> **Atenção:** a collection está configurada para a porta `7126`. Se a sua API rodar em porta diferente, atualize a variável de ambiente ou substitua a porta diretamente nas requisições antes de executar.
+Para importar: abra o Postman → **File → Import** → selecione o arquivo desejado.
+
+> **Atenção:** ambas as collections estão configuradas para a porta `7175`. Se a sua API rodar em porta diferente, atualize nas requisições antes de executar.
 
 ---
 
@@ -1231,8 +1235,6 @@ Para deletar, é recomendado remover nessa ordem:
 Os dados inseridos nas tabelas e JOINs completos estão disponíveis em [`CentimeterX.API/docs/evidence.md`](CentimeterX.API/docs/evidence.md).
 
 - [`CentimeterX.API/docs/sql/Centimeter-X_consultas.sql`](CentimeterX.API/docs/sql/Centimeter-X_consultas.sql) - scripts de consulta Oracle com SELECTs simples e JOINs completos das 5 tabelas
-
-- Vídeo demonstrativo - disponível na entrega via Teams e no YouTube, cobrindo os 6 blocos de testes organizados por controller
 
 ---
 
