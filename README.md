@@ -138,7 +138,7 @@ CentimeterX.API/                        ← raiz do repositório
     │   │   ├── Diagrama_Centimeter-X_GlobalSolution.drawio
     │   │   └── Diagrama_Centimeter-X_GlobalSolution.png
     │   ├── postman/
-    │   │   └── Centimeter-X_API.postman_collection.json
+    │   │   └── Centimeter-X_API_Testes.postman_collection.json
     │   ├── prints/
     │   │   ├── (prints do Swagger - endpoints)
     │   │   ├── (prints dos testes 01 ao 59)
@@ -208,13 +208,13 @@ O diagrama completo em formato `.drawio` está disponível em [`CentimeterX.API/
 
 ### Passo a passo
 
-**1. Clonar o repositório**
+**7.1. Clonar o repositório**
 ```bash
-git clone https://github.com/seu-usuario/CentimeterX.API.git
+git clone https://github.com/renan-utida/CentimeterX-API-CSharp.git
 cd CentimeterX.API
 ```
 
-**2. Configurar a connection string**
+**7.2. Configurar a connection string**
 
 Abra `appsettings.json` e substitua com suas credenciais Oracle FIAP:
 ```json
@@ -225,7 +225,7 @@ Abra `appsettings.json` e substitua com suas credenciais Oracle FIAP:
 }
 ```
 
-**3. Criar as tabelas no banco**
+**7.3. Criar as tabelas no banco**
 
 Abra o **Package Manager Console** no Visual Studio (Tools → NuGet Package Manager → Package Manager Console) e execute:
 ```powershell
@@ -239,16 +239,16 @@ Isso criará as 5 tabelas no Oracle:
 - `CX_SESSAO_CORRECAO`
 - `CX_OCORRENCIA`
 
-**4. Executar a aplicação**
+**7.4. Executar a aplicação**
 
 Pressione **F5** no Visual Studio. O Swagger abrirá automaticamente em:
 ```
 https://localhost:7175/swagger
 ```
 
-**5. Testar os endpoints**
+**7.5. Testar os endpoints**
 
-Use o Swagger UI ou importe a collection Postman disponível em `CentimeterX.API/docs/postman/Centimeter-X_API.postman_collection.json`.
+Use o Swagger UI ou importe a collection Postman disponível em `CentimeterX.API/docs/postman/Centimeter-X_API_Testes.postman_collection.json`.
 
 ---
 
@@ -1005,15 +1005,13 @@ Registra eventos adversos identificados pelo operador em campo. Uma ocorrência 
 
 ## 10. Collection Postman
 
-Duas collections estão disponíveis em `CentimeterX.API/docs/postman/`:
+A collection com todos os 59 cenários de teste organizados por controller está disponível em:
 
-**`Centimeter-X_API.postman_collection.json`** — collection completa com todos os 59 cenários de teste organizados por controller, incluindo fluxos de sucesso, validações de negócio e casos de erro. Ideal para reproduzir os testes documentados no `evidence.md`.
+`CentimeterX.API/docs/postman/Centimeter-X_API_Testes.postman_collection.json`
 
-**`Centimeter-X_API_Swagger.postman_collection.json`** — collection de referência rápida com uma requisição por endpoint e body de exemplo para preenchimento. Ideal para explorar a API pela primeira vez.
+Para importar: abra o Postman → **File → Import** → selecione o arquivo.
 
-Para importar: abra o Postman → **File → Import** → selecione o arquivo desejado.
-
-> **Atenção:** ambas as collections estão configuradas para a porta `7175`. Se a sua API rodar em porta diferente, atualize nas requisições antes de executar.
+> **Atenção:** a collection está configurada para a porta `7175`. Se a sua API rodar em porta diferente, atualize nas requisições antes de executar.
 
 ---
 
