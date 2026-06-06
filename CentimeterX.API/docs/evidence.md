@@ -1,4 +1,4 @@
-# Evidências de Funcionamento — Centimeter-X API
+# Evidências de Funcionamento - Centimeter-X API
 
 **Repositório:** [github.com/renan-utida/CentimeterX-API-CSharp](https://github.com/renan-utida/CentimeterX-API-CSharp)
 
@@ -23,7 +23,7 @@
 
 Este arquivo reúne as evidências completas de execução da API Centimeter-X, cobrindo todos os **59 cenários de teste** realizados via Swagger UI. Os testes estão organizados nos mesmos 6 blocos da gravação de vídeo e seguem a ordem recomendada para evitar erros de chave estrangeira.
 
-Cada cenário documenta um endpoint real da plataforma, incluindo os fluxos de sucesso e os principais casos de erro — validações de negócio, entradas inválidas e recursos inexistentes. Esta é uma versão completa e complementar ao item 11 do README, que apresenta apenas os 25 cenários mais representativos.
+Cada cenário documenta um endpoint real da plataforma, incluindo os fluxos de sucesso e os principais casos de erro - validações de negócio, entradas inválidas e recursos inexistentes. Esta é uma versão completa e complementar ao item 11 do README, que apresenta apenas os 25 cenários mais representativos.
 
 A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:1521/ORCL`), utilizando as tabelas `CX_ESTACAO_BASE`, `CX_USUARIO`, `CX_ROVER`, `CX_SESSAO_CORRECAO` e `CX_OCORRENCIA`, criadas via EF Core Migrations.
 
@@ -41,7 +41,7 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-## Bloco 1 — Estações Base
+## Bloco 1 - Estações Base
 
 > Cadastro e consulta das estações terrestres de referência GNSS. Demonstra criação de estações com coordenadas geográficas reais, validação de coordenadas inválidas, busca por ID, listagem por proximidade geográfica e atualização de dados.
 
@@ -95,7 +95,7 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-## Bloco 2 — Usuários
+## Bloco 2 - Usuários
 
 > Cadastro e gestão de usuários da plataforma. Demonstra criação de perfis Operador e Gestor, validação de e-mail duplicado, busca por ID, listagem por perfil e atualização de dados do usuário.
 
@@ -149,9 +149,9 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-## Bloco 3 — Rovers
+## Bloco 3 - Rovers
 
-> Cadastro e gestão dos equipamentos de campo. Demonstra criação dos 3 tipos de rover — Máquina Agrícola, Drone e Veículo Autônomo — com validação de nome duplicado por usuário, bloqueio de cadastro com estação offline, e atualização de cada tipo com seus atributos específicos.
+> Cadastro e gestão dos equipamentos de campo. Demonstra criação dos 3 tipos de rover - Máquina Agrícola, Drone e Veículo Autônomo - com validação de nome duplicado por usuário, bloqueio de cadastro com estação offline, e atualização de cada tipo com seus atributos específicos.
 
 ---
 
@@ -233,9 +233,9 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-## Bloco 4 — Sessões de Correção
+## Bloco 4 - Sessões de Correção
 
-> Fluxo completo de correção PPP. Demonstra inicialização de sessão por rover, bloqueio de sessão dupla para o mesmo equipamento, atualização de precisão com reclassificação automática do status de fix em três níveis — FIX (≤5cm), FLOAT (≤50cm) e SINGLE (>50cm) — encerramento com timestamp automático e histórico de sessões por rover.
+> Fluxo completo de correção PPP. Demonstra inicialização de sessão por rover, bloqueio de sessão dupla para o mesmo equipamento, atualização de precisão com reclassificação automática do status de fix em três níveis - FIX (≤5cm), FLOAT (≤50cm) e SINGLE (>50cm) - encerramento com timestamp automático e histórico de sessões por rover.
 
 ---
 
@@ -311,7 +311,7 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-## Bloco 5 — Ocorrências
+## Bloco 5 - Ocorrências
 
 > Registro de eventos adversos em campo. Demonstra criação de ocorrência com localização geográfica real, validação de coordenadas inválidas, bloqueio de ocorrência para rover inexistente, listagem geral, busca por ID, histórico por rover e filtro por tipo e período.
 
@@ -359,7 +359,7 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-## Bloco 6 — Deletes
+## Bloco 6 - Deletes
 
 > Remoção de todos os registros na ordem correta respeitando as restrições de chave estrangeira. A ordem obrigatória é: Ocorrências → Sessões → Rovers → Usuários → Estações Base.
 
@@ -431,7 +431,7 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-## Banco de Dados — Oracle SQL Developer
+## Banco de Dados - Oracle SQL Developer
 
 > Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em [`sql/CentimeterX_consultas.sql`](sql/CentimeterX_consultas.sql).
 
@@ -445,4 +445,4 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ---
 
-*Global Solution — C# Software Development | FIAP 3ESPW | 1º Semestre de 2026*
+*Global Solution - C# Software Development | FIAP 3ESPW | 1º Semestre de 2026*
