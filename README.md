@@ -191,6 +191,10 @@ A API está configurada para serializar enums como strings (`"Operador"` em vez 
 
 O diagrama completo em formato `.drawio` está disponível em [`CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.drawio`](CentimeterX.API/docs/diagram/Diagrama_Centimeter-X_GlobalSolution.drawio).
 
+**Link do Diagrama (draw.io):**
+
+[https://drive.google.com/file/d/1tdrzHI3q8k8H7tl-EG7zqFeyQ1HlEvZ6/view?usp=sharing](https://drive.google.com/file/d/1tdrzHI3q8k8H7tl-EG7zqFeyQ1HlEvZ6/view?usp=sharing)
+
 ---
 
 ## 7. Instruções de execução
