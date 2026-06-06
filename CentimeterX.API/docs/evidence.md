@@ -33,6 +33,8 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ![swagger-endpoints-2](prints/swagger-endpoints-2.png)
 
+**Ordem recomendada para testes de cadastro:** `EstacoesBase` → `Usuarios` → `Rovers` → `SessoesCorrecao` → `Ocorrencias`
+
 ---
 
 ## Bloco 1 — Estações Base
@@ -427,23 +429,27 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ## Banco de Dados — Oracle SQL Developer
 
-> Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em [`sql/CentimeterX_consultas.sql`](sql/CentimeterX_consultas.sql).
+> Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em [`sql/Centimeter-X_consultas.sql`](sql/Centimeter-X_consultas.sql).
 
-**Tabelas criadas e dados inseridos:**
+**Tabelas criadas via EF Core Migrations:**
 
 ![sql-tabelas](prints/sql-tabelas.png)
 
-**Resultados dos SELECTs por tabela:**
+**Resultados dos SELECTs simples por tabela:**
 
 ![sql-resultados-1](prints/sql-resultados-1.png)
 
-**Resultado do JOIN completo — Rovers com Estacao Base e Usuario:**
+**Resultado do JOIN — Rovers com Estacao Base e Usuario:**
 
 ![sql-resultados-2](prints/sql-resultados-2.png)
 
-**Resultado do JOIN completo — Sessoes de Correcao:**
+**Resultado do JOIN — Sessoes de Correcao com Rover e Estacao:**
 
 ![sql-resultados-3](prints/sql-resultados-3.png)
+
+**Resultado do JOIN — Ocorrencias com Rover:**
+
+![sql-resultados-4](prints/sql-resultados-4.png)
 
 ---
 
