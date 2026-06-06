@@ -433,7 +433,7 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 ## Banco de Dados — Oracle SQL Developer
 
-> Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em [`sql/Centimeter-X_consultas.sql`](sql/Centimeter-X_consultas.sql).
+> Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em [`sql/CentimeterX_consultas.sql`](sql/CentimeterX_consultas.sql).
 
 **Tabelas criadas e dados inseridos:**
 
