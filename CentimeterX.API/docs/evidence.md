@@ -431,25 +431,13 @@ A API foi testada localmente com o banco Oracle da FIAP (`oracle.fiap.com.br:152
 
 > Prints das tabelas criadas e dos dados inseridos após os testes 01 a 48 (antes dos deletes). Scripts disponíveis em [`sql/Centimeter-X_consultas.sql`](sql/Centimeter-X_consultas.sql).
 
-**Tabelas criadas via EF Core Migrations:**
+**Tabelas criadas e dados inseridos:**
 
 ![sql-tabelas](prints/sql-tabelas.png)
 
-**Resultados dos SELECTs simples por tabela:**
+**Resultados dos SELECTs por tabela:**
 
 ![sql-resultados-1](prints/sql-resultados-1.png)
-
-**Resultado do JOIN — Rovers com Estacao Base e Usuario:**
-
-![sql-resultados-2](prints/sql-resultados-2.png)
-
-**Resultado do JOIN — Sessoes de Correcao com Rover e Estacao:**
-
-![sql-resultados-3](prints/sql-resultados-3.png)
-
-**Resultado do JOIN — Ocorrencias com Rover:**
-
-![sql-resultados-4](prints/sql-resultados-4.png)
 
 ---
 
