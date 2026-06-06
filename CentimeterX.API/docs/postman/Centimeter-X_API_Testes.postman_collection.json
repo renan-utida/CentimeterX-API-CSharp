@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "50ff08e5-24be-465a-838b-15c0cdbf5dd8",
-    "name": "Centimeter-X API",
+    "name": "Centimeter-X API Testes",
     "description": "# API completa do Centimeter-X - High-Precision Positioning as a Service (HPaaS).\n\n#### Plataforma de correção GNSS/PPP que transforma a precisão de metros em centímetros para rovers de campo (máquinas agrícolas, drones e veículos autônomos).\n\n---\n\n**Ordem recomendada para cadastro:**\n\nEstacoesBase → Usuarios → Rovers → SessoesCorrecao → Ocorrencias\n\n**Ordem recomendada para deleção:**\n\nOcorrencias → SessoesCorrecao → Rovers → Usuarios → EstacoesBase\n\n---\n\n59 cenários organizados em 5 controllers.  \nGlobal Solution - C# Software Development | FIAP 3ESPW | 2026",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "37874153"
@@ -30,12 +30,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/estacoes",
+              "raw": "https://localhost:7175/api/estacoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes"
@@ -64,12 +64,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/estacoes",
+              "raw": "https://localhost:7175/api/estacoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes"
@@ -98,12 +98,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/estacoes",
+              "raw": "https://localhost:7175/api/estacoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes"
@@ -118,12 +118,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/estacoes",
+              "raw": "https://localhost:7175/api/estacoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes"
@@ -138,12 +138,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/1",
+              "raw": "https://localhost:7175/api/estacoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -159,12 +159,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/999",
+              "raw": "https://localhost:7175/api/estacoes/999",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -180,12 +180,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/proximidade?latitude=-23.0&longitude=-46.0",
+              "raw": "https://localhost:7175/api/estacoes/proximidade?latitude=-23.0&longitude=-46.0",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -225,12 +225,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/1",
+              "raw": "https://localhost:7175/api/estacoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -246,12 +246,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/2",
+              "raw": "https://localhost:7175/api/estacoes/2",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -267,12 +267,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/1",
+              "raw": "https://localhost:7175/api/estacoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -308,12 +308,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/usuarios",
+              "raw": "https://localhost:7175/api/usuarios",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios"
@@ -342,12 +342,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/usuarios",
+              "raw": "https://localhost:7175/api/usuarios",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios"
@@ -376,12 +376,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/usuarios",
+              "raw": "https://localhost:7175/api/usuarios",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios"
@@ -396,12 +396,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/usuarios",
+              "raw": "https://localhost:7175/api/usuarios",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios"
@@ -416,12 +416,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/usuarios/1",
+              "raw": "https://localhost:7175/api/usuarios/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios",
@@ -437,12 +437,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/usuarios/999",
+              "raw": "https://localhost:7175/api/usuarios/999",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios",
@@ -458,12 +458,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/usuarios/perfil/Operador",
+              "raw": "https://localhost:7175/api/usuarios/perfil/Operador",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios",
@@ -494,12 +494,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/usuarios/1",
+              "raw": "https://localhost:7175/api/usuarios/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios",
@@ -515,12 +515,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/usuarios/2",
+              "raw": "https://localhost:7175/api/usuarios/2",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios",
@@ -536,12 +536,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/usuarios/1",
+              "raw": "https://localhost:7175/api/usuarios/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "usuarios",
@@ -577,12 +577,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/maquina-agricola",
+              "raw": "https://localhost:7175/api/rovers/maquina-agricola",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -612,12 +612,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/drone",
+              "raw": "https://localhost:7175/api/rovers/drone",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -647,12 +647,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/veiculo-autonomo",
+              "raw": "https://localhost:7175/api/rovers/veiculo-autonomo",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -682,12 +682,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/maquina-agricola",
+              "raw": "https://localhost:7175/api/rovers/maquina-agricola",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -717,12 +717,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/1",
+              "raw": "https://localhost:7175/api/estacoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -752,12 +752,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/drone",
+              "raw": "https://localhost:7175/api/rovers/drone",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -787,12 +787,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/estacoes/1",
+              "raw": "https://localhost:7175/api/estacoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "estacoes",
@@ -808,12 +808,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/rovers",
+              "raw": "https://localhost:7175/api/rovers",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers"
@@ -828,12 +828,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/rovers/1",
+              "raw": "https://localhost:7175/api/rovers/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -849,12 +849,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/rovers/999",
+              "raw": "https://localhost:7175/api/rovers/999",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -884,12 +884,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/maquina-agricola/1",
+              "raw": "https://localhost:7175/api/rovers/maquina-agricola/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -920,12 +920,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/drone/2",
+              "raw": "https://localhost:7175/api/rovers/drone/2",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -956,12 +956,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/rovers/veiculo-autonomo/3",
+              "raw": "https://localhost:7175/api/rovers/veiculo-autonomo/3",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -978,12 +978,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/rovers/maquina-agricola/1",
+              "raw": "https://localhost:7175/api/rovers/maquina-agricola/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -1000,12 +1000,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/rovers/drone/2",
+              "raw": "https://localhost:7175/api/rovers/drone/2",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -1022,12 +1022,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/rovers/veiculo-autonomo/3",
+              "raw": "https://localhost:7175/api/rovers/veiculo-autonomo/3",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "rovers",
@@ -1064,12 +1064,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/sessoes",
+              "raw": "https://localhost:7175/api/sessoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes"
@@ -1098,12 +1098,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/sessoes",
+              "raw": "https://localhost:7175/api/sessoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes"
@@ -1118,12 +1118,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/1",
+              "raw": "https://localhost:7175/api/sessoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1153,12 +1153,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/1",
+              "raw": "https://localhost:7175/api/sessoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1174,12 +1174,12 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/1/encerrar",
+              "raw": "https://localhost:7175/api/sessoes/1/encerrar",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1210,12 +1210,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/sessoes",
+              "raw": "https://localhost:7175/api/sessoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes"
@@ -1244,12 +1244,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/2",
+              "raw": "https://localhost:7175/api/sessoes/2",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1265,12 +1265,12 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/2/encerrar",
+              "raw": "https://localhost:7175/api/sessoes/2/encerrar",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1301,12 +1301,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/sessoes",
+              "raw": "https://localhost:7175/api/sessoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes"
@@ -1321,12 +1321,12 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/3/encerrar",
+              "raw": "https://localhost:7175/api/sessoes/3/encerrar",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1343,12 +1343,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/rover/1",
+              "raw": "https://localhost:7175/api/sessoes/rover/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1379,12 +1379,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/sessoes",
+              "raw": "https://localhost:7175/api/sessoes",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes"
@@ -1399,12 +1399,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/3",
+              "raw": "https://localhost:7175/api/sessoes/3",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1420,12 +1420,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/2",
+              "raw": "https://localhost:7175/api/sessoes/2",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1441,12 +1441,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/sessoes/1",
+              "raw": "https://localhost:7175/api/sessoes/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "sessoes",
@@ -1482,12 +1482,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias",
+              "raw": "https://localhost:7175/api/ocorrencias",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias"
@@ -1516,12 +1516,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias",
+              "raw": "https://localhost:7175/api/ocorrencias",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias"
@@ -1550,12 +1550,12 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias",
+              "raw": "https://localhost:7175/api/ocorrencias",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias"
@@ -1570,12 +1570,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias",
+              "raw": "https://localhost:7175/api/ocorrencias",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias"
@@ -1590,12 +1590,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias/1",
+              "raw": "https://localhost:7175/api/ocorrencias/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias",
@@ -1611,12 +1611,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias/rover/1",
+              "raw": "https://localhost:7175/api/ocorrencias/rover/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias",
@@ -1633,12 +1633,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias/rover/1/filtro?tipo=PerdaDeSinal&inicio=2026-01-01",
+              "raw": "https://localhost:7175/api/ocorrencias/rover/1/filtro?tipo=PerdaDeSinal&inicio=2026-01-01",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias",
@@ -1666,12 +1666,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "https://localhost:7126/api/ocorrencias/1",
+              "raw": "https://localhost:7175/api/ocorrencias/1",
               "protocol": "https",
               "host": [
                 "localhost"
               ],
-              "port": "7126",
+              "port": "7175",
               "path": [
                 "api",
                 "ocorrencias",
