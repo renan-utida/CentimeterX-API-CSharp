@@ -144,7 +144,7 @@ CentimeterX.API                         ← raiz do repositório
     │   │   ├── (prints dos testes 01 ao 59)
     │   │   └── (prints do banco de dados Oracle)
     │   └── sql/
-    │       └── Centimeter-X_consultas.sql
+    │       └── CentimeterX_consultas.sql
     ├── appsettings.json
     └── Program.cs
 ```
@@ -1236,7 +1236,7 @@ Para deletar, é recomendado remover nessa ordem:
 
 Os dados inseridos nas tabelas e JOINs completos estão disponíveis em [`CentimeterX.API/docs/evidence.md`](CentimeterX.API/docs/evidence.md).
 
-- [`CentimeterX.API/docs/sql/Centimeter-X_consultas.sql`](CentimeterX.API/docs/sql/Centimeter-X_consultas.sql) - scripts de consulta Oracle com SELECTs simples e JOINs completos das 5 tabelas
+- [`CentimeterX.API/docs/sql/CentimeterX_consultas.sql`](CentimeterX.API/docs/sql/CentimeterX_consultas.sql) - scripts de consulta Oracle com SELECTs simples e JOINs completos das 5 tabelas
 
 ---
 
