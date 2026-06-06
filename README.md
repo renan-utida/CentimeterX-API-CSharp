@@ -97,7 +97,7 @@ Os satélites GNSS transmitem continuamente sinais de tempo e posição a partir
 ### Estrutura de pastas
 
 ```
-CentimeterX.API/                        ← raiz do repositório
+CentimeterX.API                         ← raiz do repositório
 ├── README.md                           ← documentação principal
 └── CentimeterX.API/                    ← projeto ASP.NET Core
     ├── Controllers/
